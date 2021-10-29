@@ -1,5 +1,6 @@
 module.exports = {
   purge: ['./components/**/*.js', './pages/**/*.js'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -9,6 +10,7 @@ module.exports = {
         success: '#0070f3',
         cyan: '#79FFE1',
         twitter:'#1d9bf0',
+        trueDark:'#121212'
       },
       spacing: {
         28: '7rem',
@@ -29,6 +31,13 @@ module.exports = {
         sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
         md: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
+    },
+  },
+  variants: {
+    extend: {
+      display: ['dark'],
+      transitionProperty: ['hover'],
+      transitionDuration: ['hover'],
     },
   },
 }

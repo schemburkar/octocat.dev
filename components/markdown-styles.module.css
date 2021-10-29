@@ -1,3 +1,7 @@
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
 .markdown {
   @apply text-lg leading-relaxed;
 }
@@ -18,7 +22,7 @@
 }
 
 .markdown a {
-  @apply underline font-semibold hover:text-success duration-200 transition-colors;
+  @apply underline font-semibold hover:text-success hover:duration-200 hover:transition-colors;
 }
 
 .markdown ul{
