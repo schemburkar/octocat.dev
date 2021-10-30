@@ -7,10 +7,10 @@ coverImage: 'https://worldwidecode.files.wordpress.com/2021/09/roman-synkevych-w
 date: '2021-09-29T13:35:07.322Z'
 author:
   name: Shubhan Chemburkar
-  picture: 'https://avatars.githubusercontent.com/u/3159347?v=4'
+  picture: "/assets/blog/authors/default.png"
 ogImage:
   url: 'https://worldwidecode.files.wordpress.com/2021/09/roman-synkevych-wx2l8l-fgea-unsplash.jpg?w=1080'
-isHeroPost: true
+isHeroPost: false
 
 ---
 

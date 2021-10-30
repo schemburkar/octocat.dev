@@ -5,10 +5,10 @@ coverImage: "/assets/blog/new-blog-with-nextjs/new-blog-cover.jpg"
 date: "2021-10-27T05:35:07.322Z"
 author:
   name: Shubhan Chemburkar
-  picture: "https://avatars.githubusercontent.com/u/3159347?v=4"
+  picture: "/assets/blog/authors/default.png"
 ogImage:
   url: "/assets/blog/new-blog-with-nextjs/new-blog-cover.jpg"
-isHeroPost: true
+isHeroPost: false
 ---
 
 ## Hello to **octocat.dev**.
@@ -135,4 +135,4 @@ More details around customizations in Next.js and deployments in future posts.
 
 **Cover image Credits**
 
-Photo by [Danielle MacInnes](https://unsplash.com/@dsmacinnes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/new-beginning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+> Photo by [Danielle MacInnes](https://unsplash.com/@dsmacinnes?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/new-beginning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
