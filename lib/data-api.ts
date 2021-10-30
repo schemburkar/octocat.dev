@@ -39,7 +39,7 @@ class DataAPI {
 
   getSlugs = () => readDirectory(this.directory);
 
-  getItemsBySlug = async (slug, fields: Fields[] = []) => {
+  getItemsBySlug = async (slug: string, fields: Fields[] = []) => {
     const realSlug = slug.replace(/\.md$/, '')
     const fullPath = join(this.directory, `${realSlug}.${this.fileFormat}`);
     const fileContents = await readFile(fullPath);
@@ -73,7 +73,7 @@ class DataAPI {
 
     const posts = await Promise.all(promises);
     // sort posts by date in descending order
-    return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+    return posts.sort((post1, post2) =>  (post1.date  && post2.date  && (post1.date > post2.date) ? -1 : 1))
 
   }
 }

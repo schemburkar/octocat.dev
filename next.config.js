@@ -1,5 +1,5 @@
 module.exports = {
     images: {
-      domains: ['assets.vercel.com','worldwidecode.files.wordpress.com'],
+      domains: ['avatars.githubusercontent.com','assets.vercel.com','worldwidecode.files.wordpress.com','octocat.dev'],
     },
   }

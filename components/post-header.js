@@ -8,7 +8,7 @@ export default function PostHeader({ title, coverImage, date, author, type, slug
   return (
     <>
       <PostTitle>
-        <Link as={`/${type}/${slug}`} href={`[type]/[slug]`}>
+        <Link as={`/${type}/${slug}`} href={`[slug]`}>
           <a className="hover:underline">{title}</a>
         </Link>
       </PostTitle>

@@ -13,13 +13,13 @@ import markdownToHtml from '../../lib/markdownToHtml'
 import { rehype } from 'rehype'
 import rehypeHighlight from 'rehype-highlight'
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, morePosts }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout preview={preview} >
+    <Layout  >
       <Container>
         <Header />
         {router.isFallback ? (
