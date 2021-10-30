@@ -37,6 +37,6 @@
   @apply px-4 py-2 border border-gray-200
 }
 
-.markdown blockquote{
-  @apply border-l-4 border-gray-200 p-4 bg-gray-50
+.markdown blockquote {
+  @apply border-l-4 border-gray-200 p-4 bg-gray-200 bg-opacity-25;
 }
