@@ -3,13 +3,7 @@ import Alert from './alert'
 import Footer from './footer'
 import Meta from './meta'
 
-
-
-type LayoutProps = {
-  preview?: boolean
-}
-
-const Layout: FC<LayoutProps> = ({ preview, children }) => {
+const Layout: FC = ({ children }) => {
   return (
     <>
       <Meta />
@@ -17,7 +11,7 @@ const Layout: FC<LayoutProps> = ({ preview, children }) => {
         <main>{children}</main>
       </div>
       <Footer />
-      <Alert preview={preview} />
+      <Alert />
     </>
   )
 }

@@ -1,5 +1,10 @@
 module.exports = {
-  purge: ['./components/**/*.js', './pages/**/*.js'],
+  purge: {
+    content: ['./components/**/*.js', './pages/**/*.js'],
+    safelist: [
+      'dark', 'dark:hidden', "hidden", "dark:block"
+    ]
+  },
   darkMode: 'class',
   theme: {
     extend: {
@@ -9,8 +14,8 @@ module.exports = {
         'accent-7': '#333',
         success: '#0070f3',
         cyan: '#79FFE1',
-        twitter:'#1d9bf0',
-        trueDark:'#121212'
+        twitter: '#1d9bf0',
+        trueDark: '#121212'
       },
       spacing: {
         28: '7rem',
