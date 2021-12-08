@@ -20,7 +20,7 @@ const Index = ({ allPosts, pages }: InDexProps) => {
           <title>{Title} - {Description}</title>
         </Head>
         <Container>
-          <Intro pages={pages} />
+          <Intro pages={pages} search />
           {heroPosts.map(heroPost =>
             <HeroPost key={heroPost.slug}
               title={heroPost.title}
