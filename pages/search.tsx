@@ -7,7 +7,7 @@ import { getDataAPIByType } from '../lib/data-api'
 import Head from 'next/head'
 import { CMS_NAME, Description, Title } from '../lib/constants'
 import { IItemDataForSearch } from '../lib/FileFormat'
-import { useEffect, useState, startTransition } from 'react'
+import React,{ useEffect, useState, startTransition } from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
 import { formatDistance, format } from 'date-fns'
@@ -36,7 +36,7 @@ const Index = ({ items }: Items) => {
     }
     setSearching(true);
 
-    startTransition(() => {
+    React.startTransition(() => {
       const filterItems = items.filter(item => (item?.title?.toLowerCase()?.indexOf(text) || -1) >= 0 || (item?.slug?.toLowerCase()?.indexOf(text) || -1) >= 0)
       setSearchItems(filterItems);
       setTimeout(() => {
