@@ -12,6 +12,11 @@ import Router from 'next/router'
 import Link from 'next/link'
 import { formatDistance, format } from 'date-fns'
 
+declare module 'react' {
+  function startTransition(callback: () => (void)): void;
+}
+
+
 type Items = { items: IItemDataForSearch[] }
 const Index = ({ items }: Items) => {
   const [search, setSearch] = useState('')
