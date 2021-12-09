@@ -25,18 +25,23 @@
   @apply underline font-semibold hover:text-success hover:duration-200 hover:transition-colors;
 }
 
-.markdown ul{
-  @apply list-disc list-inside
+.markdown ul {
+  @apply list-disc list-inside;
 }
 
-.markdown table{
-  @apply table-auto border-collapse border
+.markdown table {
+  @apply table-auto border-collapse border;
 }
 
-.markdown table td, .markdown table th{
-  @apply px-4 py-2 border border-gray-200
+.markdown table td,
+.markdown table th {
+  @apply px-4 py-2 border border-gray-200;
 }
 
 .markdown blockquote {
   @apply border-l-4 border-gray-200 p-4 bg-gray-200 bg-opacity-25;
+}
+
+.markdown ul li p{
+  @apply inline-block
 }

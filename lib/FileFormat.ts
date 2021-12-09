@@ -25,3 +25,13 @@ type IItemAuthor = {
 export type ItemTypes = keyof typeof ItemType;
 export type Fileformats = keyof typeof FileFormat;
 export type Fields = keyof IItemData;
+
+
+export type IItemDataForSearch = {
+  title?: string;
+  date?: Date;
+  slug?: string;
+  excerpt?: string;
+  type: string;
+
+};
