@@ -5,7 +5,6 @@ const search = <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline
 </svg>
 
 const SearchButton = ({ className }) => {
-    console.log(Router)
     return <button className={`${className} mx-8 border-gray-500 border px-2 py-0.5 rounded-md cursor-text w-full md:w-60`}
         onClick={() => Router.push('/search', Router.asPath)}>{search}{'Search'}</button>;
 

@@ -55,7 +55,7 @@ const Index = ({ items }: Items) => {
         <Container>
           <Intro pages={[]} />
           <article className="mb-32">
-            <input onKeyUp={e => e.key === 'Escape' && Router.push(Router.asPath, Router.asPath)} id="search-input" tabIndex={0} className={'text-center w-full mt-10 text-4xl leading-normal p-3 dark:bg-black border-gray-300 border rounded'} type={'text'} autoComplete={'search'} placeholder='Search Posts and Pages' onChange={(e) => searchForItems(e.target.value)} />
+            <input autoComplete='off' onKeyUp={e => e.key === 'Escape' && Router.push(Router.asPath, Router.asPath)} id="search-input" tabIndex={0} className={'text-center w-full mt-10 text-4xl leading-normal p-3 dark:bg-black border-gray-300 border rounded'} type={'text'}  placeholder='Search Posts and Pages' onChange={(e) => searchForItems(e.target.value)} />
             {search && searching && <div className={' w-full mt-10 text-4xl leading-normal py-3 '}>Searching...</div>}
             {search && searchItems.length > 0 && !searching && (<div className={' w-full mt-10 text-4xl leading-normal py-3 '}>{`Found ${searchItems.length} results`}</div>)}
             {search && searchItems.map((item, i) =>
