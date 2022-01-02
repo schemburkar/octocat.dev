@@ -7,7 +7,7 @@ import { getDataAPIByType } from '../lib/data-api'
 import Head from 'next/head'
 import { CMS_NAME, Description, Title } from '../lib/constants'
 import { IItemDataForSearch } from '../lib/FileFormat'
-import React,{ useEffect, useState, startTransition } from 'react'
+import React, { useEffect, useState, startTransition } from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
 import { formatDistance, format } from 'date-fns'
@@ -55,7 +55,8 @@ const Index = ({ items }: Items) => {
         <Container>
           <Intro pages={[]} />
           <article className="mb-32">
-            <input autoComplete='off' onKeyUp={e => e.key === 'Escape' && Router.push(Router.asPath, Router.asPath)} id="search-input" tabIndex={0} className={'text-center w-full mt-10 text-4xl leading-normal p-3 dark:bg-black border-gray-300 border rounded'} type={'text'}  placeholder='Search Posts and Pages' onChange={(e) => searchForItems(e.target.value)} />
+            <input autoComplete='off' onKeyUp={e => e.key === 'Escape' && Router.push(Router.asPath, Router.asPath)} id="search-input" tabIndex={0} className={'text-center w-full mt-10 text-4xl leading-normal p-3 dark:bg-black border-gray-300 border rounded'} type={'text'} placeholder='Search Posts and Pages' onChange={(e) => searchForItems(e.target.value)} />
+            <div className='text-right mt-2'><a href='#' className="underline hover:text-success duration-200 transition-colors" onClick={() => Router.push(Router.asPath, Router.asPath)}>Close Search</a><span className='text-xs p-1 mx-1 border-gray-300 border rounded text-'>ESC</span></div>
             {search && searching && <div className={' w-full mt-10 text-4xl leading-normal py-3 '}>Searching...</div>}
             {search && searchItems.length > 0 && !searching && (<div className={' w-full mt-10 text-4xl leading-normal py-3 '}>{`Found ${searchItems.length} results`}</div>)}
             {search && searchItems.map((item, i) =>
