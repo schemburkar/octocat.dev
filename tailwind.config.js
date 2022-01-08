@@ -1,10 +1,5 @@
 module.exports = {
-  purge: {
-    content: ['./components/**/*.js', './pages/**/*.js','./pages/**/*.tsx'],
-    safelist: [
-      'dark', 'dark:hidden', "hidden", "dark:block"
-    ]
-  },
+  content: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
