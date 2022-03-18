@@ -31,6 +31,41 @@ module.exports = {
         sm: '0 5px 10px rgba(0, 0, 0, 0.12)',
         md: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
+
+      keyframes: {
+        'fade-in-up': {
+          '0%': {
+            opacity: 0,
+            transform: 'translate3d(0,100%,0)'
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'none',
+        
+          },
+        },
+        'fade-out-down': {
+          '0%': {
+            opacity: 1,
+          },
+          '100%': {
+            opacity: 0,
+            transform: 'translate3d(0,100%,0)'
+          },
+        },
+        'fade': {
+          '0%': {
+            opacity: 0
+          },
+          '100%': {
+            opacity: 1
+          }
+        },
+      },
+      animation: {
+        'fade-out-down': 'fade-out-down 0.5s ease-out',
+        'fade-in-up': 'fade-in-up 0.5s ease-out',
+      }
     },
   },
   variants: {

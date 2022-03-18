@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import Alert from './alert'
 import Footer from './footer'
 import Meta from './meta'
+import { BuyMeCoffee } from './BuyMeCoffee'
 
 const Layout: FC = ({ children }) => {
   return (
@@ -11,6 +12,7 @@ const Layout: FC = ({ children }) => {
         <main>{children}</main>
       </div>
       <Footer />
+      <BuyMeCoffee />
       <Alert />
     </>
   )
