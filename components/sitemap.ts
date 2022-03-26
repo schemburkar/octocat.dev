@@ -17,7 +17,7 @@ const siteMapXML = (...urls: string[]) => `<?xml version="1.0" encoding="UTF-8"?
 
 const getSiteMap = async ([posts, pages]: [IItemData[], IItemData[]]) => {
     try {
-        const baseUrl = `https://${process.env.VERCEL_URL || `octocat.dev`}`;
+        const baseUrl = `https://${process.env.SITE_DOMAIN || process.env.VERCEL_URL || `octocat.dev`}`;
         const postUrls = posts.map(({ slug, type, date }) => url(`${baseUrl}/${type}/${slug}`, (date ? new Date(date) : new Date()).toISOString()));
         const pagesUrls = pages.map(({ slug, type }) => url(`${baseUrl}/${type}/${slug}`, new Date().toISOString()));
         const sitemap = siteMapXML(url(`${baseUrl}/`, new Date().toISOString()), pagesUrls.join(""), postUrls.join(""))
