@@ -1,5 +1,6 @@
 const FileFormat = {
-  md: "md"
+  md: "md",
+  json: "json",
 };
 export const ItemType = {
   posts: 'posts',

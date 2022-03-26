@@ -24,7 +24,7 @@ const readDirectory = (path: string) => {
   return promise;
 }
 
-class DataAPI {
+export class DataAPI {
   path: string = '';
   directory: string;
   fileFormat: Fileformats;
@@ -40,7 +40,8 @@ class DataAPI {
   getSlugs = () => readDirectory(this.directory);
 
   getItemsBySlug = async (slug: string, fields: Fields[] = []) => {
-    const realSlug = slug.replace(/\.md$/, '')
+    const regex = new RegExp(`\.${this.fileFormat}$`);
+    const realSlug = slug.replace(regex, '')
     const fullPath = join(this.directory, `${realSlug}.${this.fileFormat}`);
     const fileContents = await readFile(fullPath);
     const { data, content } = matter(fileContents)

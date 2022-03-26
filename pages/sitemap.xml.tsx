@@ -1,51 +1,44 @@
-import { getDataAPIByType } from "../lib/data-api";
+import { readdir } from 'fs/promises'
+
+
 import { GetServerSideProps } from "next";
+import path from 'path'
+import getConfig from 'next/config'
+const { serverRuntimeConfig } = getConfig()
+
+const PROJECT_ROOT = serverRuntimeConfig.PROJECT_ROOT;
 
 const Sitemap = () => { };
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+
+const read = async (path: string, res: any) => {
     try {
 
+        res.write(`<path>${path}<files>`)
+        const files = readdir(path);
 
-        const baseUrl = `https://${req?.headers?.host || 'octocat.dev'}`;
+        if (files) {
+            res.write(`<files>${(await files).map(file => file).join('')}<files>`)
+        }
+    }
+    catch (e) {
+        res.write(`<error>${e}</error>`);
 
-        const [posts, pages] = await Promise.all([getDataAPIByType("posts").getAllItems(['slug', 'date']), getDataAPIByType("pages").getAllItems(['slug'])]);
+    }
 
-        const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      <url>
-          <loc>${baseUrl}/</loc>
-          <lastmod>${(new Date()).toISOString()}</lastmod>
-          <changefreq>monthly</changefreq>
-          <priority>1.0</priority>
-      </url>
-      ${pages
-                .map(({ slug, type }) => {
-                    return `
-            <url>
-              <loc>${baseUrl}/${type}/${slug}</loc>
-              <lastmod>${(new Date()).toISOString()}</lastmod>
-              <changefreq>monthly</changefreq>
-              <priority>1.0</priority>
-            </url>
-            `;
-                }).join("")}
-      ${posts
-                .map(({ slug, date, type }) => {
-                    const d = date ? new Date(date) : new Date();
-                    return `
-            <url>
-              <loc>${baseUrl}/${type}/${slug}</loc>
-              <lastmod>${d.toISOString()}</lastmod>
-              <changefreq>daily</changefreq>
-              <priority>1.0</priority>
-            </url>
-            `;
-                }).join("")}
-    </urlset>`;
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+    const resp = ''
+    try {
 
         res.setHeader("Content-Type", "text/xml");
-        res.write(sitemap);
+        read('./.next/server/pages', res);
+        read('./', res);
+        read(PROJECT_ROOT, res);
+        read(path.join(PROJECT_ROOT,'./pages'), res);
+
+
         res.end();
 
 
