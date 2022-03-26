@@ -34,7 +34,14 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
     try {
 
+        await read(path.join(process.cwd(), '/'), res);
+        await read(path.join(process.cwd(), '/.next'), res);
+        await read(path.join(process.cwd(), '/.next/static'), res);
+
+        await read('./.next/server', res);
         await read('./.next/server/pages', res);
+        await read('./.next/server/pages/pages', res);
+        await read('./.next/server/pages/posts', res);
         await read('./', res);
 
         const { serverRuntimeConfig } = getConfig();
