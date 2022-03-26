@@ -4,12 +4,14 @@ import { GetServerSideProps } from "next";
 const Sitemap = () => { };
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+    try {
 
-    const baseUrl = `https://${req.headers.host}`;
 
-    const [posts, pages] = await Promise.all([getDataAPIByType("posts").getAllItems(['slug', 'date']), getDataAPIByType("pages").getAllItems(['slug'])]);
+        const baseUrl = `https://${req?.headers?.host || 'octocat.dev'}`;
 
-    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+        const [posts, pages] = await Promise.all([getDataAPIByType("posts").getAllItems(['slug', 'date']), getDataAPIByType("pages").getAllItems(['slug'])]);
+
+        const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
           <loc>${baseUrl}/</loc>
@@ -18,8 +20,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
           <priority>1.0</priority>
       </url>
       ${pages
-        .map(({ slug, type }) => {
-            return `
+                .map(({ slug, type }) => {
+                    return `
             <url>
               <loc>${baseUrl}/${type}/${slug}</loc>
               <lastmod>${(new Date()).toISOString()}</lastmod>
@@ -27,11 +29,11 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
               <priority>1.0</priority>
             </url>
             `;
-        }).join("")}
+                }).join("")}
       ${posts
-        .map(({ slug, date, type }) => {
-            const d = date ? new Date(date) : new Date();
-            return `
+                .map(({ slug, date, type }) => {
+                    const d = date ? new Date(date) : new Date();
+                    return `
             <url>
               <loc>${baseUrl}/${type}/${slug}</loc>
               <lastmod>${d.toISOString()}</lastmod>
@@ -39,13 +41,20 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
               <priority>1.0</priority>
             </url>
             `;
-        }).join("")}
+                }).join("")}
     </urlset>`;
 
-    res.setHeader("Content-Type", "text/xml");
-    res.write(sitemap);
-    res.end();
+        res.setHeader("Content-Type", "text/xml");
+        res.write(sitemap);
+        res.end();
 
+
+    }
+    catch (e) {
+        res.setHeader("Content-Type", "text/xml");
+        res.write(`<error>${e}</error>`);
+        res.end();
+    }
     return {
         props: {},
     };
