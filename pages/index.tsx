@@ -5,8 +5,9 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getDataAPIByType } from '../lib/data-api'
 import Head from 'next/head'
-import { CMS_NAME, Description, Title } from '../lib/constants'
+import { Description, Title } from '../lib/constants'
 import { IItemData } from '../lib/FileFormat'
+import { saveSiteMap } from '../components/sitemap'
 
 type InDexProps = { allPosts: IItemData[], pages: IItemData[] }
 const Index = ({ allPosts, pages }: InDexProps) => {
@@ -55,6 +56,7 @@ export async function getStaticProps() {
 
   const [allPosts, pages] = await Promise.all([a, b]);
 
+  await saveSiteMap([allPosts, pages]);
 
   return {
     props: { allPosts, pages },
