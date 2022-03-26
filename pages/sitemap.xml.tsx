@@ -1,4 +1,4 @@
-import { readdir } from 'fs/promises'
+import { readdir, readFile } from 'fs/promises'
 
 
 import { GetServerSideProps } from "next";
@@ -28,27 +28,43 @@ const read = async (path: string, res: any) => {
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     const resp = ''
-    res.setHeader("Content-Type", "text/xml");
-    res.write(`<?xml version="1.0" encoding="UTF-8"?>`)
-    res.write(`<paths>`)
-
-    try {
-
-
-        const p = new URL(req.url||'', `http://${req.headers.host}`).searchParams.get("path");
-       
-        if (p) await read(p, res);
 
 
 
+    const params = new URL(req.url || '', `http://${req.headers.host}`).searchParams;
+    const p = params.get("path");
 
+    if (p) {
+        res.setHeader("Content-Type", "text/xml");
+        res.write(`<?xml version="1.0" encoding="UTF-8"?>`)
+        res.write(`<paths>`)
 
+        try {
+            await read(p, res);
+        }
+        catch (e) {
+            res.write(`<error>${e}</error>`);
+        }
+        res.write(`</paths>`)
+        res.end();
     }
-    catch (e) {
-        res.write(`<error>${e}</error>`);
+
+
+    const f = params.get("file");
+
+    if (f) {
+        res.setHeader("Content-Type", "text/plain");
+        res.write(`<file>${f}</file>`)
+        res.write(`<content>${await readFile(f)}</content>`);
+        res.end();
     }
-    res.write(`</paths>`)
-    res.end();
+
+
+
+
+
+
+
     return {
         props: {},
     };
