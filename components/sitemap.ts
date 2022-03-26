@@ -20,7 +20,7 @@ const getSiteMap = async ([posts, pages]: [IItemData[], IItemData[]]) => {
         const baseUrl = `https://${process.env.SITE_DOMAIN || process.env.VERCEL_URL || `octocat.dev`}`;
         const postUrls = posts.map(({ slug, type, date }) => url(`${baseUrl}/${type}/${slug}`, (date ? new Date(date) : new Date()).toISOString()));
         const pagesUrls = pages.map(({ slug, type }) => url(`${baseUrl}/${type}/${slug}`, new Date().toISOString()));
-        const sitemap = siteMapXML(url(`${baseUrl}/`, new Date().toISOString()), pagesUrls.join(""), postUrls.join(""))
+        const sitemap = siteMapXML(url(`${baseUrl}/`, new Date().toISOString(), 'hourly'), pagesUrls.join(""), postUrls.join(""))
         return sitemap;
     }
     catch (e) {
