@@ -34,28 +34,18 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
     try {
 
-        await read(path.join(process.cwd(), '/'), res);
-        await read(path.join(process.cwd(), '/.next'), res);
-        await read(path.join(process.cwd(), '/.next/static'), res);
 
-        await read('./.next/server', res);
-        await read('./.next/server/pages', res);
-        await read('./.next/server/pages/pages', res);
-        await read('./.next/server/pages/posts', res);
-        await read('./', res);
-
-        const { serverRuntimeConfig } = getConfig();
-
-        const PROJECT_ROOT = serverRuntimeConfig.PROJECT_ROOT;
-        await read(PROJECT_ROOT, res);
-        await read(path.join(PROJECT_ROOT, './pages'), res);
+        const p = new URL(req.url||'', `http://${req.headers.host}`).searchParams.get("path");
+       
+        if (p) await read(p, res);
 
 
-        
-        
+
+
+
     }
     catch (e) {
-                res.write(`<error>${e}</error>`);
+        res.write(`<error>${e}</error>`);
     }
     res.write(`</paths>`)
     res.end();
