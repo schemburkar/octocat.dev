@@ -15,7 +15,7 @@ ogImage:
 
 ![profile picture of Shubhan Chemburkar](https://avatars.githubusercontent.com/u/3159347?v=4)
  
-**Shubhan Chemburkar** is a experienced software engineer having more than 12.5 years of expereince in Microsoft stack.
+**Shubhan Chemburkar** is a experienced software engineer having 13 years of experience in Microsoft stack.
 
 Currently he works in [Icertis](https://icertis.com) as a Senior Architect. He has previously worked at FIS (formerly SunGard) and Indigo Architects.
 
