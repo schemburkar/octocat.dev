@@ -40,7 +40,7 @@ export class DataAPI {
   getSlugs = () => readDirectory(this.directory);
 
   getItemsBySlug = async (slug: string, fields: Fields[] = []) => {
-    const regex = new RegExp(`\.${this.fileFormat}$`);
+    const regex = new RegExp(`[.]${this.fileFormat}$`);
     const realSlug = slug.replace(regex, '')
     const fullPath = join(this.directory, `${realSlug}.${this.fileFormat}`);
     const fileContents = await readFile(fullPath);
