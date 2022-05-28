@@ -20,7 +20,7 @@ export default function Intro({ pages, search = false }) {
         {search && <SearchButton className={"hidden md:block"} />}
         <h4 className="text-center md:text-left text-lg  pr-8 ">
           {Description}{' '}
-          {pages.map(page => <Link key={page.slug} as={`/${page.type}/${page.slug}`} href={`[type]/[slug]`}>
+          {pages.map(page => <Link key={encodeURIComponent(page.slug)} as={`/${encodeURIComponent(page.type)}/${encodeURIComponent(page.slug)}`} href={`[type]/[slug]`}>
             <a className="underline hover:text-success hover:duration-500 hover:transition-colors">{page.title}</a>
           </Link>)}
         </h4>

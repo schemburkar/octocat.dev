@@ -4,7 +4,8 @@ import Footer from './footer'
 import Meta from './meta'
 import { BuyMeCoffee } from './BuyMeCoffee'
 
-const Layout: FC = ({ children }) => {
+type LayoutProps = { children: React.ReactNode }
+const Layout = ({ children }:LayoutProps) => {
   return (
     <>
       <Meta />
