@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 const FileFormat = {
   md: "md",
   json: "json",
@@ -17,7 +19,7 @@ export type IItemData = {
 
   content?: string;
   type: string;
-  isHeroPost?:boolean
+  isHeroPost?: boolean
 };
 type IItemAuthor = {
   name?: string;
@@ -29,10 +31,15 @@ export type Fields = keyof IItemData;
 
 
 export type IItemDataForSearch = {
-  title?: string;
+  title?:  string;
   date?: Date;
   slug?: string;
   excerpt?: string;
   type: string;
-
+  search: {
+    title?: string;
+    slug?: string;
+    excerpt?: string;
+    content?: string|null;
+  }
 };

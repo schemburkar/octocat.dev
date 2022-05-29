@@ -8,6 +8,7 @@ import Head from 'next/head'
 import { Description, Title } from '../lib/constants'
 import { IItemData } from '../lib/FileFormat'
 import { saveSiteMap } from '../components/sitemap'
+import { Suspense } from 'react'
 
 type InDexProps = { allPosts: IItemData[], pages: IItemData[] }
 const Index = ({ allPosts, pages }: InDexProps) => {
@@ -15,7 +16,7 @@ const Index = ({ allPosts, pages }: InDexProps) => {
   const morePosts = allPosts.filter(a => a.isHeroPost !== true);
 
   return (
-    <>
+    <Suspense fallback={null}>
       <Layout>
         <Head>
           <title>{Title} - {Description}</title>
@@ -36,7 +37,7 @@ const Index = ({ allPosts, pages }: InDexProps) => {
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
-    </>
+    </Suspense>
   )
 }
 

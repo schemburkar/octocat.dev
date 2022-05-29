@@ -12,6 +12,7 @@ import { CMS_NAME, Description, Title } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import { rehype } from 'rehype'
 import rehypeHighlight from 'rehype-highlight'
+import { Suspense } from 'react'
 
 export default function Post({ post, morePosts }) {
   const router = useRouter()
@@ -25,7 +26,7 @@ export default function Post({ post, morePosts }) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
+          <Suspense fallback={null}>
             <article className="mb-32">
               <Head>
                 <title>
@@ -43,7 +44,7 @@ export default function Post({ post, morePosts }) {
               />
               <PostBody content={post.content} />
             </article>
-          </>
+          </Suspense>
         )}
       </Container>
     </Layout>
