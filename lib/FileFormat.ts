@@ -20,6 +20,7 @@ export type IItemData = {
   content?: string;
   type: string;
   isHeroPost?: boolean
+  coverImageAspectRatio?: number
 };
 type IItemAuthor = {
   name?: string;
@@ -31,7 +32,7 @@ export type Fields = keyof IItemData;
 
 
 export type IItemDataForSearch = {
-  title?:  string;
+  title?: string;
   date?: Date;
   slug?: string;
   excerpt?: string;
@@ -40,6 +41,6 @@ export type IItemDataForSearch = {
     title?: string;
     slug?: string;
     excerpt?: string;
-    content?: string|null;
+    content?: string | null;
   }
 };

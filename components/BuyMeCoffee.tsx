@@ -29,7 +29,7 @@ export const BuyMeCoffee = () => {
         </div>}
         <div className="fixed z-50 flex right-0 bottom-0 w-auto h-auto overflow-hidden">
             <div className="animate-fade-in-up max-w-md relative ml-auto mt-auto mr-3 mb-3  p-1   bottom-0 right-0 left-0">
-                <button title='Support me by buying me a coffee' onClick={() => onToggle()} className="bg-gray-500 bg-opacity-10  dark:bg-opacity-40 py-2 px-2 rounded-3xl">
+                <button title='Support me by buying me a coffee' onClick={() => onToggle()} className="bg-gray-500 bg-opacity-10  dark:bg-opacity-40 py-1 px-1 rounded-3xl">
                     {buymecoffee}
                 </button>
             </div>

@@ -4,7 +4,7 @@ import CoverImage from '../components/cover-image'
 import PostTitle from '../components/post-title'
 import Link from 'next/link'
 
-export default function PostHeader({ title, coverImage, date, author, type, slug }) {
+export default function PostHeader({ title, coverImage, date, author, type, slug, aspectRatio = 2 / 1 }) {
   return (
     <>
       <PostTitle>
@@ -23,7 +23,7 @@ export default function PostHeader({ title, coverImage, date, author, type, slug
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
         {coverImage &&
-          <CoverImage title={title} src={coverImage} height={620} width={1240} />
+          <CoverImage title={title} src={coverImage} height={1240 / aspectRatio} width={1240} />
         }
       </div>
     </>

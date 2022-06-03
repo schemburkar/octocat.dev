@@ -10,7 +10,8 @@ export default function HeroPost({
   excerpt,
   author,
   slug,
-  type
+  type,
+  aspectRatio = 2 / 1
 }) {
   return (
     <section>
@@ -19,7 +20,7 @@ export default function HeroPost({
           title={title}
           src={coverImage}
           slug={slug}
-          height={620}
+          height={1240 / aspectRatio}
           width={1240}
           type={type}
         />}
