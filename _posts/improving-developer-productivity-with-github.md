@@ -97,6 +97,7 @@ To work around the problem, the work needed to be smart to to detect a commit ba
 
 The below tree explains two workflow paths for the developer.
 
+```
 commit -> PR -> CI -> build -> test 
 
 commit -> PR -> CI -> build -> artifact - > skip test
@@ -104,8 +105,9 @@ commit -> PR -> CI -> build -> artifact - > skip test
                                  |
                                  v
                                commit -> PR updates -> CI -> test  
+```
 
-
+Example:
 
 ```yml
 
@@ -123,13 +125,15 @@ To overcome this, The server job not needs to stay active and only complete when
 
 This can be achived by polling the client job or verification of client validation complete status in underlying data.
 
-
+```
 PR -> Server Job -> Trigger CLient Job -> Wait to client job -> complete
                             |
                             |
                             v
                             Validate -> complete
+```
 
+example:
 
 ```yml
 
