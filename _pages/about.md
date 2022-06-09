@@ -17,8 +17,12 @@ ogImage:
  
 **Shubhan Chemburkar** is a experienced software engineer having 13 years of experience in Microsoft stack.
 
-Currently he works in [Icertis](https://icertis.com) as a Senior Architect. He has previously worked at FIS (formerly SunGard) and Indigo Architects.
+Currently he works in [Icertis](https://www.icertis.com) as a Senior Architect. He has previously worked at FIS (formerly SunGard) and Indigo Architects.
 
 This website [octocat.dev](octocat.dev) is his personal blog on all developer related stuff. Expect posts on Azure, .NET, React and more!
 
 You can always reach out to him on [Twitter](https://twitter.com/intent/tweet?screen_name=shubhan3009&ref_src=octocat.dev).
+
+
+> **Disclaimer** \
+  This is a personal blog of Shubhan Chemburkar. Any opinions expressed here are my own and do not represent the views of my employers.
