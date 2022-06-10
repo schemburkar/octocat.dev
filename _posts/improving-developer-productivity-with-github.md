@@ -2,7 +2,7 @@
 title: "Improving developer productivity with GitHub"
 excerpt: "A look at how moving to GitHub has helped improve developer productivity by providing a better way to share code and collaborate with others."
 coverImage: "/assets/blog/improving-developer-productivity-github/cover.jpg"
-date: "2022-06-01T10:14:00.000Z"
+date: "2022-06-10T10:14:00.000Z"
 author:
   name: Shubhan Chemburkar
   picture: "/assets/blog/authors/default.png"
@@ -66,10 +66,13 @@ Some aspects that GitHub was able to provide us with are:
 The critical piece of any source control system is how easy is it to implement a developer workflow.
 We had to take into consideration the existing process that was already in place, while trying to shift towards a more standardized workflow.
 
-We decided to work on feature branches while giving the team a central *team* branch for collaboration and validations.
+It was decided to work on feature branches while giving the team a central *team* branch for collaboration and validations.
 
 ![Branches](https://octocat.dev/assets/blog/improving-developer-productivity-github/Branches.png)
 
+The feature branches are lightweight and easy to create, merge or delete.
+
+The developer is free to switch between branches depending on the task at hand, reducing complexities in managing shippable code.
 
 **Workflow setups**
 
@@ -344,7 +347,9 @@ Next step in the journey to transition to GitHub is to move project management, 
 
 GitHub is a good tool to enable the developers to collaborate, share code and get things done faster and easier. 
 
-The configuration of GitHub needs to be fine tuned for your use cases and scenarios to be more productive.
+With GitHub, the developers focus stays on code, while being able to discuss and make changes together.
+
+The configuration of GitHub needs to be fine-tuned for your use cases and scenarios to be more productive.
 
 Remember to 
 - Define your requirements
