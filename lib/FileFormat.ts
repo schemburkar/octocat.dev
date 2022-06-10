@@ -32,7 +32,7 @@ export type Fields = keyof IItemData;
 
 
 export type IItemDataForSearch = {
-  title?: string;
+  title?:  string;
   date?: Date;
   slug?: string;
   excerpt?: string;
