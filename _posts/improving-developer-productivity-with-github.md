@@ -169,7 +169,7 @@ Example:
 Another interesting scenario is when we need to verify application code by validating it in a client server environment. GitHub allows runners to run jobs in parallel, however once a job is finished it lets go of the runner, making it available for the next job.
 In the client server model, the server job is complete and now when client job starts validation, the server needs to have the application code up and running. If the runner for server job is handed over, the client job will be blocked.
 
-To overcome this, The server job not needs to stay active and only complete when the client job has finished its validation. Also, the client job cannot start till server job is complete, so the server job when ready, triggers the client job and waits for its status.
+To overcome this, the server job not needs to stay active and only complete when the client job has finished its validation. Also, the client job cannot start till server job is complete, so the server job when ready, triggers the client job and waits for its status.
 
 
 This can be achieved by polling the client job or verification of client validation complete status in underlying data.
