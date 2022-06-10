@@ -41,6 +41,7 @@ export default function Post({ post, morePosts }) {
                 author={post.author}
                 type={post.type}
                 slug={post.slug}
+                aspectRatio={post.coverImageAspectRatio || (2 / 1)}
               />
               <PostBody content={post.content} />
             </article>
@@ -60,6 +61,7 @@ export async function getStaticProps({ params }) {
     'content',
     'ogImage',
     'coverImage',
+    'coverImageAspectRatio'
   ])
   const content = await markdownToHtml(post.content || '')
 

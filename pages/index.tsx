@@ -32,6 +32,7 @@ const Index = ({ allPosts, pages }: InDexProps) => {
               slug={heroPost.slug}
               excerpt={heroPost.excerpt}
               type={heroPost.type}
+              aspectRatio={heroPost.coverImageAspectRatio || (2 / 1)}
             />
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
@@ -51,7 +52,8 @@ export async function getStaticProps() {
     'author',
     'coverImage',
     'excerpt',
-    'isHeroPost'
+    'isHeroPost',
+    'coverImageAspectRatio'
   ]);
   const b = getDataAPIByType('pages').getAllItems(['title', 'slug']);
 
