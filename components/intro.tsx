@@ -2,11 +2,12 @@ import Link from 'next/link'
 import { Description, Title } from '../lib/constants'
 import ThemeToggle from './themeToggle'
 import SearchButton from './SearchButton'
+import { IItemData } from '../lib/FileFormat'
 
 
-export default function Intro({ pages, search = false }) {
+export default function Intro({ pages, search = false }: IntroProps) {
   return (
-    <section className="flex-col md:flex-row flex items-center md:justify-between mt-10 mb-10 md:mb-10">
+    <section className="flex-col md:flex-row flex items-center md:justify-between mt-5 mb-10 md:mb-10">
 
 
       <Link href="/">
@@ -20,7 +21,7 @@ export default function Intro({ pages, search = false }) {
         {search && <SearchButton className={"hidden md:block"} />}
         <h4 className="text-center md:text-left text-lg  pr-8 ">
           {Description}{' '}
-          {pages.map(page => <Link key={encodeURIComponent(page.slug)} as={`/${encodeURIComponent(page.type)}/${encodeURIComponent(page.slug)}`} href={`[type]/[slug]`}>
+          {pages.map(page => <Link key={encodeURIComponent(page.slug || '')} as={`/${encodeURIComponent(page.type)}/${encodeURIComponent(page.slug || '')}`} href={`[type]/[slug]`}>
             <a className="underline hover:text-success hover:duration-500 hover:transition-colors">{page.title}</a>
           </Link>)}
         </h4>
@@ -30,3 +31,4 @@ export default function Intro({ pages, search = false }) {
   )
 }
 
+type IntroProps = { pages: IItemData[], search?: boolean }

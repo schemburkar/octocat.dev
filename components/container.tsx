@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 
-type ContainerProps = { children?: ReactNode };
-export default function Container({ children }: ContainerProps) {
-  return <div className="container mx-auto px-5">{children}</div>
+type ContainerProps = { children?: ReactNode, compact?: boolean };
+export default function Container({ children, compact = false }: ContainerProps) {
+  return <div className={`container mx-auto ${!compact ? 'px-5' : ' px-2 md:px-5'}`}>{children}</div>
 }
