@@ -21,21 +21,25 @@ const Index = ({ allPosts, pages }: InDexProps) => {
         <Head>
           <title>{Title} - {Description}</title>
         </Head>
-        <Container>
+        <Container compact>
           <Intro pages={pages} search />
-          {heroPosts.map(heroPost =>
-            <HeroPost key={heroPost.slug}
-              title={heroPost.title}
-              coverImage={heroPost.coverImage}
-              date={heroPost.date}
-              author={heroPost.author}
-              slug={heroPost.slug}
-              excerpt={heroPost.excerpt}
-              type={heroPost.type}
-              aspectRatio={heroPost.coverImageAspectRatio || (2 / 1)}
-            />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          <section>
+            {heroPosts.map(heroPost =>
+              <HeroPost key={heroPost.slug}
+                title={heroPost.title}
+                coverImage={heroPost.coverImage}
+                date={heroPost.date}
+                author={heroPost.author}
+                slug={heroPost.slug}
+                excerpt={heroPost.excerpt}
+                type={heroPost.type}
+                aspectRatio={heroPost.coverImageAspectRatio || (2 / 1)}
+              />
+            )}
+          </section>
+          <section>
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          </section>
         </Container>
       </Layout>
     </Suspense>
