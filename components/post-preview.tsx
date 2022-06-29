@@ -18,7 +18,7 @@ const PostPreview = ({
       {coverImage && <div className="mb-5">
         <CoverImage
           slug={slug}
-          title={title}
+          title={title || ''}
           src={coverImage}
           height={278}
           width={556}
