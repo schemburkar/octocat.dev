@@ -48,6 +48,11 @@ A library of illustrations and people that can be mixed and matched and used in 
 [![Snapshot of humaaans.com home page](https://worldwidecode.files.wordpress.com/2022/07/humaaans.com_-e1658821893868.jpeg)](https://www.humaaans.com/)
 
 
+# [illustration](https://freesvgillustration.com/)
+
+[illustration](https://freesvgillustration.com/) has a collection of illustrations with both free and premium offerings. Currently there is no mention of attribution requiremnts if any.
+
+[![Snapshot of freesvgillustration.com](https://worldwidecode.files.wordpress.com/2022/07/freesvgillustration.com_.png)](https://freesvgillustration.com)
 ### Discussion
 
 
