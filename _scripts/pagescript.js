@@ -1,11 +1,20 @@
-function updateTheme() {
-    var darkTheme = "dark";
-    if (!globalThis.localStorage) { return; }
+const darkTheme = "dark";
+const theme = "theme";
 
-    if (globalThis.localStorage.theme === darkTheme || (!('theme' in globalThis.localStorage) && globalThis.matchMedia(`(prefers-color-scheme: ${darkTheme})`).matches)) {
-        globalThis.document.documentElement.classList.add(darkTheme)
+function updateTheme() {
+
+    if (!globalThis.localStorage || !globalThis.document) {
+        return;
+    }
+
+    const storage = globalThis.localStorage;
+    const document = globalThis.document;
+
+    const isDarkTheme = storage.getItem(theme) === darkTheme || storage.getItem("theme") === null && globalThis.matchMedia(`(prefers-color-scheme: ${darkTheme})`).matches;
+    if (isDarkTheme) {
+        document.documentElement.classList.add(darkTheme)
     } else {
-        globalThis.document.documentElement.classList.remove(darkTheme)
+        document.documentElement.classList.remove(darkTheme)
     }
 };
 updateTheme();
