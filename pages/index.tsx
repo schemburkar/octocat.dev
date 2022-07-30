@@ -9,9 +9,10 @@ import { Description, Title } from '../lib/constants'
 import { IItemData } from '../lib/FileFormat'
 import { saveSiteMap } from '../components/sitemap'
 import { Suspense } from 'react'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
-type InDexProps = { allPosts: IItemData[], pages: IItemData[] }
-const Index = ({ allPosts, pages }: InDexProps) => {
+type PageProps = { allPosts: IItemData[], pages: IItemData[] }
+const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const heroPosts = allPosts.filter(a => a.isHeroPost === true);
   const morePosts = allPosts.filter(a => a.isHeroPost !== true);
 
@@ -47,7 +48,7 @@ const Index = ({ allPosts, pages }: InDexProps) => {
 }
 
 export default Index;
-export async function getStaticProps() {
+export const getStaticProps:GetStaticProps<PageProps> = async () => {
 
   const a = getDataAPIByType("posts").getAllItems([
     'title',

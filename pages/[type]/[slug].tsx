@@ -13,10 +13,16 @@ import markdownToHtml from '../../lib/markdownToHtml'
 import { rehype } from 'rehype'
 import rehypeHighlight from 'rehype-highlight'
 import { Suspense } from 'react'
+import { IItemData, ItemTypes } from '../../lib/FileFormat'
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 
-export default function Post({ post, morePosts }) {
+type InferStaticPathsProps<T> = T extends GetStaticPaths<infer P> ? (P extends ParsedUrlQuery & infer ResultType ? ResultType : never) : never;
+
+
+const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
+  if (!post || (!router.isFallback && !post?.slug)) {
     return <ErrorPage statusCode={404} />
   }
   return (
@@ -43,7 +49,7 @@ export default function Post({ post, morePosts }) {
                 slug={post.slug}
                 aspectRatio={post.coverImageAspectRatio || (2 / 1)}
               />
-              <PostBody content={post.content} />
+              <PostBody content={post.content || ''} />
             </article>
           </Suspense>
         )}
@@ -52,8 +58,10 @@ export default function Post({ post, morePosts }) {
   )
 }
 
-export async function getStaticProps({ params }) {
-  const post = await getDataAPIByType(params.type).getItemsBySlug(params.slug, [
+
+export const getStaticProps: GetStaticProps<{ post?: IItemData }, InferStaticPathsProps<typeof getStaticPaths>> = async ({ params }) => {
+  if (!params || !params.type || !params.slug) return { notFound: true };
+  let post = await getDataAPIByType(params.type).getItemsBySlug(params.slug, [
     'title',
     'date',
     'slug',
@@ -70,17 +78,17 @@ export async function getStaticProps({ params }) {
     .use(rehypeHighlight)
     .process(content)
 
+  post = {
+    ...post,
+    content: typeof parsedContent.value === "string" ? parsedContent.value : "",
+  };
+
   return {
-    props: {
-      post: {
-        ...post,
-        content: parsedContent.value,
-      },
-    },
+    props: { post },
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths<ParsedUrlQuery & { slug?: string, type?: ItemTypes }> = async () => {
   const [posts, pages] = await Promise.all([getDataAPIByType("posts").getAllItems(['slug']), getDataAPIByType("pages").getAllItems(['slug'])]);
   return {
     paths: posts.concat(pages).map((post) => {
@@ -94,3 +102,4 @@ export async function getStaticPaths() {
     fallback: false,
   }
 }
+export default Post;

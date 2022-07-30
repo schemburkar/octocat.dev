@@ -18,9 +18,11 @@ export type IItemData = {
   excerpt?: string;
 
   content?: string;
-  type: string;
+  type: ItemTypes;
   isHeroPost?: boolean
   coverImageAspectRatio?: number
+
+  ogImage?: { url: string }
 };
 type IItemAuthor = {
   name?: string;
@@ -32,7 +34,7 @@ export type Fields = keyof IItemData;
 
 
 export type IItemDataForSearch = {
-  title?:  string;
+  title?: string;
   date?: Date;
   slug?: string;
   excerpt?: string;
