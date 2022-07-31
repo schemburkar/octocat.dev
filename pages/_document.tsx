@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import fs from 'fs'
 import { join } from 'path'
 
-export default class MyDocument extends Document {
+class AppDocument extends Document {
   render() {
     return (
       <Html lang="en">
@@ -16,3 +16,5 @@ export default class MyDocument extends Document {
     )
   }
 }
+
+export default AppDocument;
