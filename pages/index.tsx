@@ -8,6 +8,7 @@ import Head from 'next/head'
 import { Description, Title } from '../lib/constants'
 import { IItemData } from '../lib/FileFormat'
 import { saveSiteMap } from '../components/sitemap'
+import { saveFeedXML } from '../components/feed'
 import { Suspense } from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
@@ -65,6 +66,7 @@ export const getStaticProps:GetStaticProps<PageProps> = async () => {
   const [allPosts, pages] = await Promise.all([a, b]);
 
   await saveSiteMap([allPosts, pages]);
+  await saveFeedXML([allPosts, pages]);
 
   return {
     props: { allPosts, pages },
