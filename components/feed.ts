@@ -32,9 +32,10 @@ const itemXML = (baseUrl: string, p: IItemData) => {
     const url = `${baseUrl}/${p.type}/${p.slug}`;
     const date = (p.date ? new Date(p.date) : new Date()).toUTCString()
 
-    const media = p.coverImage ? `
-    <media:thumbnail url="${p.coverImage}" />
-    <media:content url="${p.coverImage}" medium="image">
+    const imageUrl = p.coverImage ? new URL(p.coverImage, baseUrl).toString() : '';
+    const media = imageUrl ? `
+    <media:thumbnail url="${imageUrl}" />
+    <media:content url="${imageUrl}" medium="image">
         <media:title type="html">${p.title}</media:title>
     </media:content>
     `: '';
