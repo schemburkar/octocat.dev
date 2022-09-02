@@ -14,7 +14,7 @@ const feedXML = (baseUrl: string, ...items: string[]) => {
     xmlns:media="http://search.yahoo.com/mrss/">
 <channel>
     <title>${Title}</title>
-    <link>${baseUrl}</title>
+    <link>${baseUrl}</link>
     <description>${Description}</description>
     <lastBuildDate>${date.toUTCString()}</lastBuildDate>
     <pubDate>${date.toUTCString()}</pubDate>
