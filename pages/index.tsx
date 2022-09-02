@@ -61,7 +61,7 @@ export const getStaticProps:GetStaticProps<PageProps> = async () => {
     'isHeroPost',
     'coverImageAspectRatio'
   ]);
-  const b = getDataAPIByType('pages').getAllItems(['title', 'slug']);
+  const b = getDataAPIByType('pages').getAllItems(['title', 'slug', 'excerpt']);
 
   const [allPosts, pages] = await Promise.all([a, b]);
 
