@@ -46,7 +46,7 @@ export class DataAPI {
     const fileContents = await readFile(fullPath);
     const { data, content } = matter(fileContents)
 
-    const items: IItemData = { type: ItemType[this.itemType] }
+    const items: IItemData = { type: ItemType[this.itemType] as ItemType }
 
     // Ensure only the minimal needed data is exposed
     fields.forEach((field) => {
