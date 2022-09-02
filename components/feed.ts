@@ -15,7 +15,6 @@ const feedXML = (baseUrl: string, ...items: string[]) => {
 <channel>
     <title>${Title}</title>
     <description>${Description}</description>
-    <title></title>
     <lastBuildDate>${date.toUTCString()}</lastBuildDate>
     <pubDate>${date.toUTCString()}</pubDate>
     <language>en</language>
@@ -39,6 +38,10 @@ const itemXML = (baseUrl: string, p: IItemData) => {
         <media:title type="html">${p.title}</media:title>
     </media:content>
     `: '';
+
+    const author = p.author ? `
+    <dc:creator><![CDATA[${p.author?.name}]]></dc:creator>
+    `: '';
     return (`
     <item>
         <title><![CDATA[${p.title}]]></title>
@@ -47,8 +50,7 @@ const itemXML = (baseUrl: string, p: IItemData) => {
         <pubDate>${date}</pubDate>
         <description><![CDATA[${p.excerpt}]]></description>
         <content:encoded><![CDATA[${p.excerpt}]]></content:encoded>
-        <dc:creator><![CDATA[${p.author?.name}]]></dc:creator>
-        <author><![CDATA[${p.author?.name}]]></author>
+        ${author}
         ${media}
 
     </item>
