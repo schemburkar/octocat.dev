@@ -31,7 +31,7 @@ const PostPreview = ({
         </Link>
       </h3>
       <div className="text-lg mb-4  px-4 md:p-0">
-        <DateFormatter dateString={date} />
+        {date && <DateFormatter dateString={date} />}
       </div>
       <p className="text-lg leading-relaxed mb-4  px-4 md:p-0">{excerpt}</p>
       <div className=' px-4 py-3 md:px-0'>
