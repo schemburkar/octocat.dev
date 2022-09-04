@@ -16,7 +16,7 @@ import { Suspense } from 'react'
 import { IItemData, ItemTypes } from '../../lib/FileFormat'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import { ArchiveBanner } from './ArchiveBanner'
+import { ArchiveBanner } from '../../components/ArchiveBanner'
 
 type InferStaticPathsProps<T> = T extends GetStaticPaths<infer P> ? (P extends ParsedUrlQuery & infer ResultType ? ResultType : never) : never;
 

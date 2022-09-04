@@ -51,8 +51,9 @@ const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProp
               </Link>
 
             </h2>
-            <span className='block my-5 md:inline md:mx-5 md:my-0 hover:underline text-2xl'><Link href={'/archive'}>
-              <>See all {archivePosts} posts from archive</>
+            <span className='block my-5 md:inline md:mx-5 md:my-0 hover:underline text-2xl'>
+              <Link href={'/archive'}>
+              <a>See all {archivePosts} posts from archive</a>
             </Link></span>
           </section>
         </Container>
