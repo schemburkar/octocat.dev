@@ -30,7 +30,7 @@ const feedXML = (baseUrl: string, ...items: string[]) => {
 };
 
 const itemXML = (baseUrl: string, p: IItemData) => {
-    const url = `${baseUrl}/${p.type}/${p.slug}`;
+    const url = `${baseUrl}/${p.type}/${p.slug.join('/')}`;
     const date = (p.date ? new Date(p.date) : new Date()).toUTCString()
 
     const imageUrl = p.coverImage ? new URL(p.coverImage, baseUrl).toString() : '';

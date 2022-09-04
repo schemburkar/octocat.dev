@@ -7,7 +7,7 @@ import { Description, Title } from '../lib/constants'
 import { IItemData, IItemDataForSearch } from '../lib/FileFormat'
 import React, { useEffect, useState, Suspense, startTransition, FC, useTransition, useDeferredValue, ReactNode, useLayoutEffect } from 'react'
 import Router from 'next/router'
-import Link from 'next/link'
+import PostLink from '../components/PostLink'
 import { formatDistance, format } from 'date-fns'
 
 type Items = { items: IItemDataForSearch[] }
@@ -15,7 +15,7 @@ type Items = { items: IItemDataForSearch[] }
 type SearchResult = {
   title?: string | ReactNode;
   date?: Date;
-  slug?: string;
+  slug: string[];
   excerpt?: string | ReactNode;
   type: string;
 }
@@ -109,9 +109,9 @@ const SearchListItem = ({ title, excerpt, slug, date, type }: SearchResult) => {
   return (
     <div className=" my-6 py-6  ">
       <div className="mb-2 text-2xl">
-        <Link as={`/${type}/${slug}`} href={`[type]/[slug]`}>
+        <PostLink type={type} slug={slug}>
           <a className="hover:underline ">{title}</a>
-        </Link>
+        </PostLink>
       </div>
       <div className='text-gray-400'>
         {excerpt}
@@ -127,7 +127,7 @@ const mapItem = (item: IItemData): IItemDataForSearch => {
   return ({
     title, excerpt, date, slug, type,
     search: {
-      title: title?.toLowerCase(), slug: slug?.toLowerCase(), excerpt: excerpt?.toLowerCase(),
+      title: title?.toLowerCase(), slug: slug.join('/').toLowerCase(), excerpt: excerpt?.toLowerCase(),
       content: content ? content.toLowerCase() : null,
     }
   });

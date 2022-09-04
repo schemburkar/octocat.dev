@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import Link from 'next/link'
+import PostLink from './PostLink'
 import Image from 'next/image'
 
 
@@ -19,9 +19,9 @@ export default function CoverImage({ title, src, slug, height, width, type, clas
   return (
     <div className={`sm:mx-0 ${className}`}>
       {slug ? (
-        <Link as={`/${type}/${slug}`} href={`[type]/[slug]`}>
+        <PostLink type={type} slug={slug}>
           <a aria-label={title}>{image}</a>
-        </Link>
+        </PostLink>
       ) : (
         image
       )}
@@ -32,5 +32,5 @@ export default function CoverImage({ title, src, slug, height, width, type, clas
 
 
 type CoverImageProps = {
-  title: string, src: string, slug?: string, height: number, width: number, type?: string, className?: string, responsive?: boolean
+  title: string, src: string, slug?: string[], height: number, width: number, type: string, className?: string, responsive?: boolean
 }

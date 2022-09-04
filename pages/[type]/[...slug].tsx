@@ -16,6 +16,7 @@ import { Suspense } from 'react'
 import { IItemData, ItemTypes } from '../../lib/FileFormat'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
+import { ArchiveBanner } from '../../components/ArchiveBanner'
 
 type InferStaticPathsProps<T> = T extends GetStaticPaths<infer P> ? (P extends ParsedUrlQuery & infer ResultType ? ResultType : never) : never;
 
@@ -49,6 +50,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 slug={post.slug}
                 aspectRatio={post.coverImageAspectRatio || (2 / 1)}
               />
+              {post.isArchive && <ArchiveBanner /> }
               <PostBody content={post.content || ''} />
             </article>
           </Suspense>
@@ -57,7 +59,6 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
     </Layout>
   )
 }
-
 
 export const getStaticProps: GetStaticProps<{ post?: IItemData }, InferStaticPathsProps<typeof getStaticPaths>> = async ({ params }) => {
   if (!params || !params.type || !params.slug) return { notFound: true };
@@ -69,7 +70,8 @@ export const getStaticProps: GetStaticProps<{ post?: IItemData }, InferStaticPat
     'content',
     'ogImage',
     'coverImage',
-    'coverImageAspectRatio'
+    'coverImageAspectRatio',
+    'isArchive'
   ])
   const content = await markdownToHtml(post.content || '')
 
@@ -88,7 +90,7 @@ export const getStaticProps: GetStaticProps<{ post?: IItemData }, InferStaticPat
   }
 }
 
-export const getStaticPaths: GetStaticPaths<ParsedUrlQuery & { slug?: string, type?: ItemTypes }> = async () => {
+export const getStaticPaths: GetStaticPaths<ParsedUrlQuery & { slug?: string[], type: ItemTypes }> = async () => {
   const [posts, pages] = await Promise.all([getDataAPIByType("posts").getAllItems(['slug']), getDataAPIByType("pages").getAllItems(['slug'])]);
   return {
     paths: posts.concat(pages).map((post) => {
@@ -100,6 +102,6 @@ export const getStaticPaths: GetStaticPaths<ParsedUrlQuery & { slug?: string, ty
       }
     }),
     fallback: false,
-  }
+  };
 }
 export default Post;

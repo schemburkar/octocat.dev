@@ -1,27 +1,23 @@
-import fs from 'fs'
-import { join } from 'path'
+import { readFile, readdir } from 'fs/promises'
+import { join, sep } from 'path'
 import matter from 'gray-matter'
 import { Fileformats, ItemTypes, Fields, IItemData, ItemType } from './FileFormat'
 
-const readFile = (path: string) => {
-  const promise = new Promise<string>((resolve, reject) =>
-    fs.readFile(path, 'utf8', (err, data) => {
-      if (err) reject(err);
-      else resolve(data);
-    })
-  )
-  return promise;
+
+type filepath = {
+  name: string
+  dir?: string
 }
 
-
-const readDirectory = (path: string) => {
-  const promise = new Promise<string[]>((resolve, reject) =>
-    fs.readdir(path, (err, files) => {
-      if (err) reject(err);
-      else resolve(files);
-    })
-  )
-  return promise;
+async function* readDirectory(path: string, parentPath?: string): AsyncGenerator<string[]> {
+  const dirents = await readdir(path, { withFileTypes: true });
+  for (const dirent of dirents) {
+    if (dirent.isDirectory()) {
+      yield* readDirectory(join(path, dirent.name), dirent.name);
+    } else {
+      yield parentPath ? [parentPath, dirent.name] : [dirent.name];
+    }
+  }
 }
 
 export class DataAPI {
@@ -39,19 +35,21 @@ export class DataAPI {
 
   getSlugs = () => readDirectory(this.directory);
 
-  getItemsBySlug = async (slug: string, fields: Fields[] = []) => {
+  getItemsBySlug = async (slugs: string[], fields: Fields[] = []) => {
     const regex = new RegExp(`[.]${this.fileFormat}$`);
-    const realSlug = slug.replace(regex, '')
-    const fullPath = join(this.directory, `${realSlug}.${this.fileFormat}`);
+    const paths = slugs.slice(0, slugs.length - 1);
+    const [slug] = slugs.slice(slugs.length - 1);
+    const realSlug = slug.replace(regex, '');
+    const fullPath = join(this.directory, paths.join(sep), `${realSlug}.${this.fileFormat}`);
     const fileContents = await readFile(fullPath);
     const { data, content } = matter(fileContents)
 
-    const items: IItemData = { type: ItemType[this.itemType] as any }
+    const items: IItemData = { type: ItemType[this.itemType] as any, slug: [] };
 
     // Ensure only the minimal needed data is exposed
     fields.forEach((field) => {
       if (field === 'slug') {
-        items[field] = realSlug
+        items[field] = [...paths, realSlug]
       }
       if (field === 'content') {
         items[field] = content
@@ -69,16 +67,23 @@ export class DataAPI {
   getAllItems = async (fields: Fields[] = []) => {
     const slugs = await this.getSlugs()
 
-    const promises = slugs
-      .map((slug) => this.getItemsBySlug(slug, fields));
 
-    const posts = await Promise.all(promises);
+    const posts = await getItems(slugs, (slug) => this.getItemsBySlug(slug, fields));
+
+    //const posts = await Promise.all(promises);
     // sort posts by date in descending order
-    return posts.sort((post1, post2) =>  (post1.date  && post2.date  && (post1.date > post2.date) ? -1 : 1))
+    return posts.sort((post1, post2) => (post1.date && post2.date && (post1.date > post2.date) ? -1 : 1))
 
   }
 }
 
+const getItems = async <T, V = T>(items: AsyncGenerator<T>, callback: (value: T) => Promise<V>): Promise<V[]> => {
+  let result: V[] = [];
+  for await (const value of items) {
+    result.push(await callback(value));
+  }
+  return result;
+}
 
 const postsData = new DataAPI({ path: '_posts' });
 const pagesData = new DataAPI({ path: '_pages', itemType: 'pages' });
