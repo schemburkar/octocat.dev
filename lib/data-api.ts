@@ -1,5 +1,5 @@
 import { readFile, readdir } from 'fs/promises'
-import { join } from 'path'
+import { join, sep } from 'path'
 import matter from 'gray-matter'
 import { Fileformats, ItemTypes, Fields, IItemData, ItemType } from './FileFormat'
 
@@ -40,7 +40,7 @@ export class DataAPI {
     const paths = slugs.slice(0, slugs.length - 1);
     const [slug] = slugs.slice(slugs.length - 1);
     const realSlug = slug.replace(regex, '');
-    const fullPath = join(this.directory, join(...paths), `${realSlug}.${this.fileFormat}`);
+    const fullPath = join(this.directory, paths.join(sep), `${realSlug}.${this.fileFormat}`);
     const fileContents = await readFile(fullPath);
     const { data, content } = matter(fileContents)
 

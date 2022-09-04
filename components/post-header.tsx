@@ -26,7 +26,7 @@ export default function PostHeader({ title, coverImage, date, author, type, slug
       </div>
       <div className="mb-8 md:mb-16 sm:mx-0">
         {coverImage &&
-          <CoverImage title={title || ''} src={coverImage} height={size.height}
+          <CoverImage title={title || ''} src={coverImage} height={size.height} type={type}
             width={size.width} responsive={false} className={'text-center'} />
         }
       </div>
