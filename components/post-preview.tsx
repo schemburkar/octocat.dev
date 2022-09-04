@@ -4,17 +4,22 @@ import CoverImage from './cover-image'
 import PostLink from './PostLink'
 import { IItemData } from '../lib/FileFormat'
 
-const PostPreview = ({
-  title,
-  coverImage,
-  date,
-  excerpt,
-  author,
-  slug,
-  type
-}: IItemData) => {
+type PostPreviewProps = {
+  post: IItemData
+  classes?: string
+}
+const PostPreview = ({ post, classes }: PostPreviewProps) => {
+  const {
+    title,
+    coverImage,
+    date,
+    excerpt,
+    author,
+    slug,
+    type,
+  } = post;
   return (
-    <article className=" shadow-md md:shadow-none shadow-gray-200 dark:shadow-gray-800 rounded-md">
+    <article className={`shadow-md md:shadow-none shadow-gray-200 dark:shadow-gray-800 rounded-md ${classes || ''}`}>
       {coverImage && <div className="mb-5">
         <CoverImage
           slug={slug}
