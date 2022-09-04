@@ -298,4 +298,4 @@ For any queries or feedback, please start a new discussion on [GitHub Discussion
 > Cover Photo by [Jack B](https://unsplash.com/@nervum?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/lights-out?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
 ### Co-Author
-> This post was co-authored by [GitHub Copilot](copilot.github.com)
+> This post was co-authored by [GitHub Copilot](https://copilot.github.com)
