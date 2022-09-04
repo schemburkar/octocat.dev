@@ -3,11 +3,11 @@ import TextPost from './text-post'
 import { MorePosts } from '../lib/constants'
 import { IItemData } from '../lib/FileFormat'
 
-export default function MoreStories({ posts }: MoreStoriesProps) {
+export default function MoreStories({ posts, title }: MoreStoriesProps) {
   return (
     <>
       <h2 className="mb-8 text-4xl md:text-6xl font-bold tracking-tighter leading-tight">
-        {MorePosts}
+        {title}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-10 md:gap-y-16 mb-32">
         {posts.map((post, i) => (
@@ -37,4 +37,4 @@ export default function MoreStories({ posts }: MoreStoriesProps) {
   )
 }
 
-type MoreStoriesProps = { posts: IItemData[] }
+type MoreStoriesProps = { posts: IItemData[], title: string }

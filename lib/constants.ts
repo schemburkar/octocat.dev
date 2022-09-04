@@ -6,5 +6,6 @@ export const HOME_OG_IMAGE_URL =
 export const Title = "octocat.dev"
 export const Description = "A Developer's blog."
 export const MorePosts = "More Posts"
+export const ArchivePosts = "Archive Posts"
 export const darkTheme = 'dark'
 export const lightTheme = 'light'

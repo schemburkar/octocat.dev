@@ -19,11 +19,17 @@ export type IItemData = {
 
   content?: string;
   type: ItemTypes;
-  isHeroPost?: boolean
+ 
   coverImageAspectRatio?: number
 
   ogImage?: { url: string }
-};
+} & IItemDataOptions;
+
+export type IItemDataOptions = {
+  isHeroPost?: boolean
+  isArchive?: boolean
+}
+
 type IItemAuthor = {
   name?: string;
   picture?: string;

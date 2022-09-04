@@ -18,9 +18,9 @@ const siteMapXML = (...urls: string[]) => `<?xml version="1.0" encoding="UTF-8"?
 const getSiteMap = async ([posts, pages]: [IItemData[], IItemData[]]) => {
     try {
         const baseUrl = `https://${process.env.SITE_DOMAIN || process.env.VERCEL_URL || `octocat.dev`}`;
-        const postUrls = posts.map(({ slug, type, date }) => url(`${baseUrl}/${type}/${slug}`, (date ? new Date(date) : new Date()).toISOString()));
-        const pagesUrls = pages.map(({ slug, type }) => url(`${baseUrl}/${type}/${slug}`, new Date().toISOString()));
-        const sitemap = siteMapXML(url(`${baseUrl}/`, new Date().toISOString(), 'hourly'), pagesUrls.join(""), postUrls.join(""))
+        const postUrls = posts.map(({ slug, type, date }) => url(`${baseUrl}/${type}/${slug.join('/')}`, (date ? new Date(date) : new Date()).toISOString()));
+        const pagesUrls = pages.map(({ slug, type }) => url(`${baseUrl}/${type}/${slug.join('/')}`, new Date().toISOString()));
+        const sitemap = siteMapXML(url(`${baseUrl}/`, new Date().toISOString(), 'hourly'),url(`${baseUrl}/archive`, new Date().toISOString(), 'hourly'), pagesUrls.join(""), postUrls.join(""))
         return sitemap;
     }
     catch (e) {
