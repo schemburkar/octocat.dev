@@ -17,6 +17,7 @@ type PageProps = { allPosts: IItemData[], pages: IItemData[] }
 const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const heroPosts = allPosts.filter(a => a.isHeroPost === true && a.isArchive !== true);
   const morePosts = allPosts.filter(a => a.isHeroPost !== true && a.isArchive !== true);
+  const archivePosts = allPosts.filter(a => a.isArchive === true).length;
 
   return (
     <Suspense fallback={null}>
@@ -44,11 +45,15 @@ const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProp
             {morePosts.length > 0 && <MoreStories title={MorePosts} posts={morePosts} />}
           </section>
           <section>
-            <h2 className="mb-8 text-4xl md:text-6xl font-bold tracking-tighter leading-tight">
+            <h2 className="md:inline-block md:mb-8 text-4xl md:text-6xl font-bold tracking-tighter leading-tight hover:underline">
               <Link href={'/archive'}>
                 {ArchivePosts}
               </Link>
+
             </h2>
+            <span className='block my-5 md:inline md:mx-5 md:my-0 hover:underline text-2xl'><Link href={'/archive'}>
+              <>See all {archivePosts} posts from archive</>
+            </Link></span>
           </section>
         </Container>
       </Layout>
