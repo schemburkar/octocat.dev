@@ -1,7 +1,7 @@
 import Avatar from './avatar'
 import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
-import Link from 'next/link'
+import PostLink from './PostLink'
 import { IItemData } from '../lib/FileFormat'
 
 const PostPreview = ({
@@ -26,9 +26,9 @@ const PostPreview = ({
         />
       </div>}
       <h3 className="text-3xl mb-3 leading-snug px-4 md:p-0">
-        <Link as={`/${type}/${slug}`} href={`[type]/[slug]`}>
+        <PostLink type={type} slug={slug}>
           <a className="hover:underline">{title}</a>
-        </Link>
+        </PostLink>
       </h3>
       <div className="text-lg mb-4  px-4 md:p-0">
         {date && <DateFormatter dateString={date} />}

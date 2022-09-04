@@ -26,8 +26,8 @@ const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProp
         <Container compact>
           <Intro pages={pages} search />
           <section>
-            {heroPosts.map(heroPost =>
-              <HeroPost key={heroPost.slug}
+            {heroPosts.map((heroPost,i) =>
+              <HeroPost key={i}
                 title={heroPost.title}
                 coverImage={heroPost.coverImage}
                 date={heroPost.date}

@@ -12,7 +12,7 @@ export type IItemData = {
   title?: string;
   date?: Date;
 
-  slug?: string;
+  slug: string[];
   author?: IItemAuthor;
   coverImage?: string;
   excerpt?: string;
@@ -36,7 +36,7 @@ export type Fields = keyof IItemData;
 export type IItemDataForSearch = {
   title?: string;
   date?: Date;
-  slug?: string;
+  slug: string[];
   excerpt?: string;
   type: string;
   search: {

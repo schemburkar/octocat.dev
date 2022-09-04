@@ -88,7 +88,7 @@ export const getStaticProps: GetStaticProps<{ post?: IItemData }, InferStaticPat
   }
 }
 
-export const getStaticPaths: GetStaticPaths<ParsedUrlQuery & { slug?: string, type?: ItemTypes }> = async () => {
+export const getStaticPaths: GetStaticPaths<ParsedUrlQuery & { slug?: string[], type: ItemTypes }> = async () => {
   const [posts, pages] = await Promise.all([getDataAPIByType("posts").getAllItems(['slug']), getDataAPIByType("pages").getAllItems(['slug'])]);
   return {
     paths: posts.concat(pages).map((post) => {
@@ -100,6 +100,6 @@ export const getStaticPaths: GetStaticPaths<ParsedUrlQuery & { slug?: string, ty
       }
     }),
     fallback: false,
-  }
+  };
 }
 export default Post;

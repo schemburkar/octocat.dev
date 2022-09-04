@@ -10,11 +10,11 @@ export default function MoreStories({ posts }: MoreStoriesProps) {
         {MorePosts}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-10 md:gap-y-16 mb-32">
-        {posts.map((post) => (
+        {posts.map((post, i) => (
 
           post.coverImage ?
             <PostPreview
-              key={post.slug}
+              key={i}
               title={post.title}
               coverImage={post.coverImage}
               date={post.date}
@@ -24,7 +24,7 @@ export default function MoreStories({ posts }: MoreStoriesProps) {
               type={post.type}
             />
             :
-            <TextPost key={post.slug}
+            <TextPost key={i}
               title={post.title}
               date={post.date}
               author={post.author}

@@ -2,7 +2,7 @@ import Avatar from '../components/avatar'
 import DateFormatter from '../components/date-formatter'
 import CoverImage from '../components/cover-image'
 import PostTitle from '../components/post-title'
-import Link from 'next/link'
+import PostLink from './PostLink'
 import { useScreenHeight } from './useScreenHeight'
 import { IItemData } from '../lib/FileFormat'
 
@@ -11,9 +11,9 @@ export default function PostHeader({ title, coverImage, date, author, type, slug
   return (
     <>
       <PostTitle>
-        <Link as={`/${type}/${slug}`} href={`[slug]`}>
+        <PostLink type={type} slug={slug}>
           <a className="hover:underline">{title}</a>
-        </Link>
+        </PostLink>
       </PostTitle>
 
       <div className=" mx-auto flex  mb-6 items-center">

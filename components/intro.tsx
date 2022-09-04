@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PostLink from './PostLink'
 import { Description, Title } from '../lib/constants'
 import ThemeToggle from './themeToggle'
 import SearchButton from './SearchButton'
@@ -21,9 +22,9 @@ export default function Intro({ pages, search = false }: IntroProps) {
         {search && <SearchButton className={"hidden md:block"} />}
         <h4 className="text-center md:text-left text-lg  pr-8 ">
           {Description}{' '}
-          {pages.map(page => <Link key={encodeURIComponent(page.slug || '')} as={`/${encodeURIComponent(page.type)}/${encodeURIComponent(page.slug || '')}`} href={`[type]/[slug]`}>
+          {pages.map((page, i) => <PostLink key={i} type={page.type} slug={page.slug} >
             <a className="underline hover:text-success hover:duration-500 hover:transition-colors">{page.title}</a>
-          </Link>)}
+          </PostLink>)}
         </h4>
         <ThemeToggle />
       </div>
