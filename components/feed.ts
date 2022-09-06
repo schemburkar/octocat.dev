@@ -63,7 +63,7 @@ const getFeedXML = async ([posts, pages]: [IItemData[], IItemData[]]) => {
         const baseUrl = `https://${process.env.SITE_DOMAIN || process.env.VERCEL_URL || `octocat.dev`}`;
         const postXML = posts.map((p) => itemXML(baseUrl, p));
         const pageXML = pages.map((p) => itemXML(baseUrl, p));
-        const sitemap = feedXML(baseUrl, pageXML.join(""), postXML.join(""))
+        const sitemap = feedXML(baseUrl, postXML.join(""), pageXML.join(""))
         return sitemap;
     }
     catch (e) {

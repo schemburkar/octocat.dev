@@ -17,6 +17,7 @@ import { IItemData, ItemTypes } from '../../lib/FileFormat'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { ArchiveBanner } from '../../components/ArchiveBanner'
+import { BaseUrl } from '../../lib/baseUrl'
 
 type InferStaticPathsProps<T> = T extends GetStaticPaths<infer P> ? (P extends ParsedUrlQuery & infer ResultType ? ResultType : never) : never;
 
@@ -26,6 +27,8 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
   if (!post || (!router.isFallback && !post?.slug)) {
     return <ErrorPage statusCode={404} />
   }
+  const imageUrl = post && post.ogImage && post.ogImage.url ? new URL(post.ogImage.url, BaseUrl).toString() : '';
+  const postTitle = post && `${post.title} | ${Title} - ${Description}`;
   return (
     <Layout  >
       <Container>
@@ -39,7 +42,17 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <title>
                   {post.title} | {Title} - {Description}
                 </title>
-                {post.ogImage && post.ogImage.url && <meta property="og:image" content={post.ogImage.url} />}
+                <meta property="og:type" content={`article`} />
+                <meta property="og:title" content={postTitle} />
+                <meta property="og:url" content={`${BaseUrl}/${encodeURIComponent(post.type)}/${post.slug.map(a => encodeURIComponent(a)).join('/')}`} />
+                <meta property="og:description" content={post.excerpt} />
+                <meta property="description" content={post.excerpt} />
+                {post.date && <meta property="article:published_time" content={(typeof post.date === 'string' ? new Date(post.date) : post.date)?.toISOString()} />}
+                {imageUrl && <meta property="og:image" content={imageUrl} />}
+                {imageUrl && <meta property="twitter:image" content={imageUrl} />}
+                <meta property="twitter:text.title" content={postTitle} />
+                <meta property="twitter:tcard" content={`summary_large_image`} />
+
               </Head>
               <PostHeader
                 title={post.title}
@@ -50,7 +63,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 slug={post.slug}
                 aspectRatio={post.coverImageAspectRatio || (2 / 1)}
               />
-              {post.isArchive && <ArchiveBanner /> }
+              {post.isArchive && <ArchiveBanner />}
               <PostBody content={post.content || ''} />
             </article>
           </Suspense>
@@ -71,7 +84,8 @@ export const getStaticProps: GetStaticProps<{ post?: IItemData }, InferStaticPat
     'ogImage',
     'coverImage',
     'coverImageAspectRatio',
-    'isArchive'
+    'isArchive',
+    'excerpt'
   ])
   const content = await markdownToHtml(post.content || '')
 

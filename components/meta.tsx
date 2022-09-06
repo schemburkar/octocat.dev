@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { BaseUrl } from '../lib/baseUrl'
 import { Description, HOME_OG_IMAGE_URL, Title } from '../lib/constants'
 
 export default function Meta() {
@@ -31,12 +32,17 @@ export default function Meta() {
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <link rel={"alternate"} type="application/rss+xml" title={Title} href={`${BaseUrl}/feed.xml`} />
       <meta
         name="description"
         content={`${Title} ${Description}`}
       />
+      <meta property="og:type" content={`website`} />
+      <meta property="og:site_name" content={Title} />
       <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+      <meta property="og:locale" content={'en'} />
+      <meta property="twitter:creator" content={'shubhan3009'} />
+      <meta property="twitter:site" content={Title} />
     </Head>
   )
 }
