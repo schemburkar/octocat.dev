@@ -5,7 +5,7 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getDataAPIByType } from '../lib/data-api'
 import Head from 'next/head'
-import { ArchivePosts, Description, MorePosts, Title } from '../lib/constants'
+import { ArchivePosts, Description, HOME_OG_IMAGE_URL, MorePosts, Title } from '../lib/constants'
 import { IItemData } from '../lib/FileFormat'
 import { saveSiteMap } from '../components/sitemap'
 import { saveFeedXML } from '../components/feed'
@@ -24,6 +24,7 @@ const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProp
       <Layout>
         <Head>
           <title>{Title} - {Description}</title>
+          <meta property="og:image" content={HOME_OG_IMAGE_URL} />
         </Head>
         <Container compact>
           <Intro pages={pages} search />

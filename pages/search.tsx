@@ -3,7 +3,7 @@ import Intro from '../components/intro'
 import Layout from '../components/layout'
 import { getDataAPIByType } from '../lib/data-api'
 import Head from 'next/head'
-import { Description, Title } from '../lib/constants'
+import { Description, HOME_OG_IMAGE_URL, Title } from '../lib/constants'
 import { IItemData, IItemDataForSearch } from '../lib/FileFormat'
 import React, { useEffect, useState, Suspense, startTransition, FC, useTransition, useDeferredValue, ReactNode, useLayoutEffect } from 'react'
 import Router from 'next/router'
@@ -57,6 +57,7 @@ const Index = ({ items }: Items) => {
       <Layout>
         <Head>
           <title>{Title} - {Description}</title>
+          <meta property="og:image" content={HOME_OG_IMAGE_URL} />
         </Head>
         <Container>
           <Intro pages={[]} />

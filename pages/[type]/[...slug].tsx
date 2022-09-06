@@ -46,12 +46,14 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <meta property="og:title" content={postTitle} />
                 <meta property="og:url" content={`${BaseUrl}/${encodeURIComponent(post.type)}/${post.slug.map(a => encodeURIComponent(a)).join('/')}`} />
                 <meta property="og:description" content={post.excerpt} />
+                <meta property="twitter:description" content={post.excerpt} />
                 <meta property="description" content={post.excerpt} />
                 {post.date && <meta property="article:published_time" content={(typeof post.date === 'string' ? new Date(post.date) : post.date)?.toISOString()} />}
                 {imageUrl && <meta property="og:image" content={imageUrl} />}
                 {imageUrl && <meta property="twitter:image" content={imageUrl} />}
+                <meta property="twitter:title" content={postTitle} />
                 <meta property="twitter:text.title" content={postTitle} />
-                <meta property="twitter:tcard" content={`summary_large_image`} />
+                <meta property="twitter:card" content={`summary_large_image`} />
 
               </Head>
               <PostHeader

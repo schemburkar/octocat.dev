@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { BaseUrl } from '../lib/baseUrl'
-import { Description, HOME_OG_IMAGE_URL, Title } from '../lib/constants'
+import { Description, Title } from '../lib/constants'
 
 export default function Meta() {
   return (
@@ -39,7 +39,6 @@ export default function Meta() {
       />
       <meta property="og:type" content={`website`} />
       <meta property="og:site_name" content={Title} />
-      <meta property="og:image" content={HOME_OG_IMAGE_URL} />
       <meta property="og:locale" content={'en'} />
       <meta property="twitter:creator" content={'shubhan3009'} />
       <meta property="twitter:site" content={Title} />
