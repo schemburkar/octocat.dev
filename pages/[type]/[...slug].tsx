@@ -18,6 +18,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { ArchiveBanner } from '../../components/ArchiveBanner'
 import { BaseUrl } from '../../lib/baseUrl'
+import markdownStyles from '../../components/markdown-styles.module.css'
 
 type InferStaticPathsProps<T> = T extends GetStaticPaths<infer P> ? (P extends ParsedUrlQuery & infer ResultType ? ResultType : never) : never;
 
@@ -89,7 +90,7 @@ export const getStaticProps: GetStaticProps<{ post?: IItemData }, InferStaticPat
     'isArchive',
     'excerpt'
   ])
-  const content = await markdownToHtml(post.content || '')
+  const content = await markdownToHtml(post.content || '', { anchorLinkClassName: markdownStyles['link-anchor'], clobberPrefix: '' })
 
   const parsedContent = await rehype()
     .data('settings', { fragment: true })

@@ -46,6 +46,14 @@
   @apply border-l-4 border-gray-200 p-4 bg-gray-200 bg-opacity-25;
 }
 
-.markdown ul li p{
+.markdown ul li p {
   @apply inline-block
+}
+
+.markdown h2 .link-anchor, .markdown h3 .link-anchor {
+  @apply no-underline opacity-10 ml-[-2.5rem] mr-4 text-base;
+}
+
+.markdown h2:hover .link-anchor, .markdown h3:hover .link-anchor{
+  @apply opacity-80;
 }
