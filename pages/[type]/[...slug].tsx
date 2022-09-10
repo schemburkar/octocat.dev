@@ -52,6 +52,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 {post.date && <meta property="article:published_time" content={(typeof post.date === 'string' ? new Date(post.date) : post.date)?.toISOString()} />}
                 {imageUrl && <meta property="og:image" content={imageUrl} />}
                 {imageUrl && <meta property="twitter:image" content={imageUrl} />}
+                {imageUrl && <meta property="twitter:image:src" content={imageUrl} />}
                 <meta property="twitter:title" content={postTitle} />
                 <meta property="twitter:text.title" content={postTitle} />
                 <meta property="twitter:card" content={`summary_large_image`} />

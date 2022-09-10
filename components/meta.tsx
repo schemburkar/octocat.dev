@@ -40,7 +40,8 @@ export default function Meta() {
       <meta property="og:type" content={`website`} />
       <meta property="og:site_name" content={Title} />
       <meta property="og:locale" content={'en'} />
-      <meta property="twitter:creator" content={'shubhan3009'} />
+      <meta property="twitter:creator" content={'@shubhan3009'} />
+      <meta property="twitter:domain" content={Title} />
       <meta property="twitter:site" content={Title} />
     </Head>
   )
