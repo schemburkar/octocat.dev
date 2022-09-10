@@ -8,6 +8,7 @@ import { ArchivePosts, Description, HOME_OG_IMAGE_URL, Title } from '../lib/cons
 import { IItemData } from '../lib/FileFormat'
 import { Suspense } from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+const title = `${Title} - ${Description}`;
 
 type PageProps = { allPosts: IItemData[], pages: IItemData[] }
 const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -17,7 +18,7 @@ const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProp
     <Suspense fallback={null}>
       <Layout>
         <Head>
-          <title>{Title} - {Description}</title>
+          <title>{title}</title>
           <meta property="og:image" content={HOME_OG_IMAGE_URL} />
         </Head>
         <Container compact>

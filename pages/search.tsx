@@ -9,6 +9,7 @@ import React, { useEffect, useState, Suspense, startTransition, FC, useTransitio
 import Router from 'next/router'
 import PostLink from '../components/PostLink'
 import { formatDistance, format } from 'date-fns'
+const title = `${Title} - ${Description}`;
 
 type Items = { items: IItemDataForSearch[] }
 
@@ -56,7 +57,7 @@ const Index = ({ items }: Items) => {
     <Suspense fallback={null}>
       <Layout>
         <Head>
-          <title>{Title} - {Description}</title>
+          <title>{title}</title>
           <meta property="og:image" content={HOME_OG_IMAGE_URL} />
         </Head>
         <Container>

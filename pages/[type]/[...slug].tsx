@@ -40,9 +40,7 @@ const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
           <Suspense fallback={null}>
             <article className="mb-32">
               <Head>
-                <title>
-                  {post.title} | {Title} - {Description}
-                </title>
+                <title>{postTitle}</title>
                 <meta property="og:type" content={`article`} />
                 <meta property="og:title" content={postTitle} />
                 <meta property="og:url" content={`${BaseUrl}/${encodeURIComponent(post.type)}/${post.slug.map(a => encodeURIComponent(a)).join('/')}`} />
