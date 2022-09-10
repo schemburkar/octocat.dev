@@ -13,7 +13,7 @@ ogImage:
 ## **About the Author**
 
 
-![profile picture of Shubhan Chemburkar](https://avatars.githubusercontent.com/u/3159347?v=4)
+![profile picture of Shubhan Chemburkar](https://octocat.dev/assets/blog/authors/default.png)
  
 **Shubhan Chemburkar** is a experienced software engineer having 13 years of experience in developing products in Microsoft stack.
 

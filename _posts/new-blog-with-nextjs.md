@@ -60,7 +60,7 @@ Every post is contains its own metadata data like title, excerpt, cover image et
     date: '2021-10-27T05:35:07.322Z'
     author:
       name: Shubhan Chemburkar
-      picture: 'https://avatars.githubusercontent.com/u/3159347?v=4'
+      picture: '/assets/blog/authors/default.png'
     ogImage:
       url: '/assets/blog/new-blog-with-nextjs/new-blog-cover.jpg'
     isHeroPost: false

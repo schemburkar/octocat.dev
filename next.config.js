@@ -3,10 +3,10 @@
  */
 const nextConfig = {
   images: {
-    domains: ['avatars.githubusercontent.com', 'assets.vercel.com', 'worldwidecode.files.wordpress.com', 'octocat.dev'],
+    domains: ['assets.vercel.com', 'worldwidecode.files.wordpress.com', 'octocat.dev'],
   },
   reactStrictMode: true,
-  experimental:{
+  experimental: {
     legacyBrowsers: false,
   },
 }
