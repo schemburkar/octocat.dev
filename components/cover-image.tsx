@@ -10,8 +10,7 @@ export default function CoverImage({ title, src, slug, height, width, type, clas
       alt={`Cover Image for ${title}`}
       className={cn('shadow-sm', {
         'hover:shadow-md transition-shadow duration-200': slug,
-      }, "rounded-t-md md:rounded-none")}
-      layout={responsive ? "responsive" : "intrinsic"}
+      }, "rounded-t-md md:rounded-none", responsive? "w-full h-auto":'max-w-full h-auto')}
       width={width}
       height={height}
     />
@@ -19,9 +18,7 @@ export default function CoverImage({ title, src, slug, height, width, type, clas
   return (
     <div className={`sm:mx-0 ${className}`}>
       {slug ? (
-        <PostLink type={type} slug={slug}>
-          <a aria-label={title}>{image}</a>
-        </PostLink>
+        <PostLink type={type} slug={slug} aria-label={title}>{image}</PostLink>
       ) : (
         image
       )}

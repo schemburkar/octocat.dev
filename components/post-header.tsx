@@ -11,9 +11,7 @@ export default function PostHeader({ title, coverImage, date, author, type, slug
   return (
     <>
       <PostTitle>
-        <PostLink type={type} slug={slug}>
-          <a className="hover:underline">{title}</a>
-        </PostLink>
+        <PostLink type={type} slug={slug} className="hover:underline">{title}</PostLink>
       </PostTitle>
 
       <div className=" mx-auto flex  mb-6 items-center">

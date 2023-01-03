@@ -31,9 +31,7 @@ const PostPreview = ({ post, classes }: PostPreviewProps) => {
         />
       </div>}
       <h3 className="text-3xl mb-3 leading-snug px-4 md:p-0">
-        <PostLink type={type} slug={slug}>
-          <a className="hover:underline">{title}</a>
-        </PostLink>
+        <PostLink type={type} slug={slug} className="hover:underline">{title}</PostLink>
       </h3>
       <div className="text-lg mb-4  px-4 md:p-0">
         {date && <DateFormatter dateString={date} />}

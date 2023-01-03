@@ -8,9 +8,7 @@ export default function Header() {
     <>
       <div className="flex justify-between items-center mb-20 mt-5">
         <h2 className="text-2xl md:text-5xl font-bold tracking-tight md:tracking-tighter leading-tight flex-grow ">
-          <Link href="/">
-            <a className="hover:underline ">{Title}</a>
-          </Link>
+          <Link  href="/" className="hover:underline ">{Title}</Link>
           .
         </h2>
         <SearchButton className={'hidden md:block'} />

@@ -14,9 +14,7 @@ const TextPost = ({
   return (
     <article className="md:col-start-1 md:col-end-3 shadow-md md:shadow-none shadow-gray-200 dark:shadow-gray-800 rounded-md" >
       <h3 className=" md:mb-4 text-3xl lg:text-4xl leading-snug px-4 py-3 md:p-0">
-        <PostLink type={type} slug={slug}>
-          <a className="hover:underline">{title}</a>
-        </PostLink>
+        <PostLink type={type} slug={slug} className="hover:underline">{title}</PostLink>
       </h3>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-32 px-4 py-3 md:p-0">
         <div>

@@ -43,7 +43,7 @@ const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProp
             )}
           </section>
           <section>
-            {morePosts.length > 0 && <MoreStories title={MorePosts} posts={morePosts} />}
+            {morePosts.length > 0 && <MoreStories title={''} posts={morePosts} />}
           </section>
           <section>
             <h2 className="md:inline-block md:mb-8 text-4xl md:text-6xl font-bold tracking-tighter leading-tight hover:underline">
@@ -53,9 +53,7 @@ const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProp
 
             </h2>
             <span className='block my-5 md:inline md:mx-5 md:my-0 hover:underline text-2xl'>
-              <Link href={'/archive'}>
-                <a>See all {archivePosts} posts from archive</a>
-              </Link></span>
+              <Link href={'/archive'}>See all {archivePosts} posts from archive</Link></span>
           </section>
         </Container>
       </Layout>

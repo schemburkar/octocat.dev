@@ -5,9 +5,10 @@ type PostLinkProps = {
     slug: string[]
     type: string,
     children?: ReactNode
+    className?: string
 }
-const PostLink = ({ slug, type, children }: PostLinkProps) => {
-    return <Link as={`/${encodeURIComponent(type)}/${slug.map(a => encodeURIComponent(a)).join('/')}`} href={`[type]/[...slug]`}>
+const PostLink = ({ slug, type, children, className }: PostLinkProps) => {
+    return <Link className={className} as={`/${encodeURIComponent(type)}/${slug.map(a => encodeURIComponent(a)).join('/')}`} href={`[type]/[...slug]`}>
         {children}
     </Link>
 }

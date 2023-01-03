@@ -32,9 +32,7 @@ export default function HeroPost({
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-5 md:mb-28 px-4 pb-4 md:p-0">
         <span>
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
-            <PostLink type={type} slug={slug}>
-              <a className="hover:underline">{title}</a>
-            </PostLink>
+            <PostLink type={type} slug={slug} className="hover:underline">{title}</PostLink>
           </h3>
           <div className="mb-4 md:mb-0 text-lg">
             {date && <DateFormatter dateString={date} />}

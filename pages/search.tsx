@@ -111,9 +111,7 @@ const SearchListItem = ({ title, excerpt, slug, date, type }: SearchResult) => {
   return (
     <div className=" my-6 py-6  ">
       <div className="mb-2 text-2xl">
-        <PostLink type={type} slug={slug}>
-          <a className="hover:underline ">{title}</a>
-        </PostLink>
+        <PostLink type={type} slug={slug} className="hover:underline ">{title}</PostLink>
       </div>
       <div className='text-gray-400'>
         {excerpt}

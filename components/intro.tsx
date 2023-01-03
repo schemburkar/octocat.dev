@@ -11,10 +11,9 @@ export default function Intro({ pages, search = false }: IntroProps) {
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-5 mb-10 md:mb-10">
 
 
-      <Link href="/">
-        <a className="hover:underline "> <h1 className="text-6xl md:text-5xl font-bold tracking-tighter leading-tight md:pr-8">
-          {Title}.
-        </h1></a>
+      <Link href="/" className="hover:underline "> <h1 className="text-6xl md:text-5xl font-bold tracking-tighter leading-tight md:pr-8">
+        {Title}.
+      </h1>
       </Link>
 
       {search && <SearchButton className={"md:hidden"} />}
@@ -22,9 +21,7 @@ export default function Intro({ pages, search = false }: IntroProps) {
         {search && <SearchButton className={"hidden md:block"} />}
         <h4 className="text-center md:text-left text-lg  pr-8 ">
           {Description}{' '}
-          {pages.map((page, i) => <PostLink key={i} type={page.type} slug={page.slug} >
-            <a className="underline hover:text-success hover:duration-500 hover:transition-colors">{page.title}</a>
-          </PostLink>)}
+          {pages.map((page, i) => <PostLink key={i} type={page.type} slug={page.slug} className="underline hover:text-success hover:duration-500 hover:transition-colors">{page.title}</PostLink>)}
         </h4>
         <ThemeToggle />
       </div>
