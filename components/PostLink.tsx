@@ -8,7 +8,7 @@ type PostLinkProps = {
     className?: string
 }
 const PostLink = ({ slug, type, children, className }: PostLinkProps) => {
-    return <Link className={className} as={`/${encodeURIComponent(type)}/${slug.map(a => encodeURIComponent(a)).join('/')}`} href={`[type]/[...slug]`}>
+    return <Link className={className} href={`/${encodeURIComponent(type)}/${slug.map(a => encodeURIComponent(a)).join('/')}`} >
         {children}
     </Link>
 }

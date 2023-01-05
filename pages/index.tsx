@@ -13,12 +13,10 @@ import { Suspense } from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 
-type PageProps = { allPosts: IItemData[], pages: IItemData[] }
+type PageProps = { heroPosts: IItemData[], morePosts: IItemData[], archivePosts: number, pages: IItemData[] }
 const title = `${Title} - ${Description}`;
-const Index = ({ allPosts, pages }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const heroPosts = allPosts.filter(a => a.isHeroPost === true && a.isArchive !== true);
-  const morePosts = allPosts.filter(a => a.isHeroPost !== true && a.isArchive !== true);
-  const archivePosts = allPosts.filter(a => a.isArchive === true).length;
+const Index = ({ heroPosts, morePosts, archivePosts, pages }: InferGetStaticPropsType<typeof getStaticProps>) => {
+
   return (
     <Suspense fallback={null}>
       <Layout>
@@ -82,7 +80,24 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
   await saveSiteMap([allPosts, pages]);
   await saveFeedXML([allPosts, pages]);
 
+  const heroPosts = allPosts.filter(a => a.isHeroPost === true && a.isArchive !== true);
+  const morePosts = allPosts.filter(a => a.isHeroPost !== true && a.isArchive !== true);
+
+  const archivePosts = allPosts.filter(a => a.isArchive === true).length;
+
   return {
-    props: { allPosts, pages },
+    props: { heroPosts, morePosts: [...orderPostsForDisplay(morePosts)], archivePosts, pages },
+  }
+}
+
+
+function* orderPostsForDisplay(posts: IItemData[]) {
+  for (let index = 0; index < posts.length; index++) {
+    const element = posts[index];
+    if (index % 2 !== 0 && !posts[index].coverImage && index + 1 < posts.length) {
+      yield posts[index + 1];
+      index++;
+    }
+    yield element;
   }
 }

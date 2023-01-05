@@ -1,16 +1,19 @@
 import cn from 'classnames'
 import PostLink from './PostLink'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 
 
-export default function CoverImage({ title, src, slug, height, width, type, className, responsive = true }: CoverImageProps) {
+export default function CoverImage({ title, src, slug, height, width, type, className, responsive = true, rounded = true }: CoverImageProps) {
   const image = (
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
       className={cn('shadow-sm', {
         'hover:shadow-md transition-shadow duration-200': slug,
-      }, "rounded-t-md md:rounded-none", responsive? "w-full h-auto":'max-w-full h-auto')}
+      }, rounded ? "rounded-t-md md:rounded-none" : '',
+        responsive ? "w-full h-auto " : 'max-w-full h-auto'
+      )}
+      layout={responsive ? 'responsive' : 'intrinsic'}
       width={width}
       height={height}
     />
@@ -29,5 +32,7 @@ export default function CoverImage({ title, src, slug, height, width, type, clas
 
 
 type CoverImageProps = {
-  title: string, src: string, slug?: string[], height: number, width: number, type: string, className?: string, responsive?: boolean
+  title: string, src: string, slug?: string[], height: number, width: number, type: string, className?: string,
+  responsive?: boolean
+  rounded?: boolean
 }

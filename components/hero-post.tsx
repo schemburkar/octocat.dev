@@ -18,7 +18,7 @@ export default function HeroPost({
   const size = useScreenHeight(aspectRatio);
   return (
     <article className='shadow-md shadow-gray-200 dark:shadow-gray-800 md:shadow-none  mb-10 md:mb-0 rounded-md'>
-      <header className="mb-8 md:mb-16">
+      <header className="mb-8 md:mb-14">
         {coverImage && <CoverImage
           title={title || ''}
           src={coverImage}
@@ -31,7 +31,7 @@ export default function HeroPost({
       </header>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-5 md:mb-28 px-4 pb-4 md:p-0">
         <span>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
+          <h3 className="mb-4 text-3xl lg:text-5xl leading-tight">
             <PostLink type={type} slug={slug} className="hover:underline">{title}</PostLink>
           </h3>
           <div className="mb-4 md:mb-0 text-lg">

@@ -30,7 +30,7 @@ const PostPreview = ({ post, classes }: PostPreviewProps) => {
           type={type}
         />
       </div>}
-      <h3 className="text-3xl mb-3 leading-snug px-4 md:p-0">
+      <h3 className="text-2xl mb-3 leading-snug px-4 md:p-0">
         <PostLink type={type} slug={slug} className="hover:underline">{title}</PostLink>
       </h3>
       <div className="text-lg mb-4  px-4 md:p-0">
