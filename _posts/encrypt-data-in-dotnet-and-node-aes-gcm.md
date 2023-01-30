@@ -16,11 +16,11 @@ In this post I would like to showcase how to encrypt and decrypt data in .NET an
 
 With front end frameworks supporting server side rendering, it should be possible to decrypt data sent from your API server in encrypted format. This requires support from both .NET and frontend server codebases like Node. 
 
-We can encrypt or decrypt data with multiple alorithims. For this post I am using AES GCM that is more secure than other alogorithms.
+We can encrypt or decrypt data with multiple algorithms. For this post I am using AES GCM that is more secure than other algorithms.
 
 ## Encryption in .NET
 
-For Encryption, data is in form of `ReadOnlySpan<byte>`. If you have plain text or serialized JSON data, Convert it to bytes using UTF8 encoding.
+For Encryption, data is in form of `ReadOnlySpan<byte>`. If you have plain text or serialized JSON data, convert it to bytes using UTF8 encoding.
 
 ```csharp
 var data = System.Text.Encoding.UTF8.GetBytes(json);
@@ -79,7 +79,7 @@ Lets now look at the same code for Node.
 
 The equivalent of `ReadOnlySpan<byte> encryptedData` for Node is `Buffer`. We use the same methodology to encrypt with 12 bytes of nonce and 16 bytes of auth tag.
 
-*For this example using Typescript.*
+*For this example, I'm using Typescript.*
 
 ```ts
 const NonceByteSizesMaxSize = 12
@@ -130,6 +130,7 @@ const decryptData = (encryptedData: Buffer, encryptionKey: Buffer): Buffer => {
     return data;
 }
 ```
+The above code works with modern frameworks like NextJs.
 
 ## Recomendation
 
