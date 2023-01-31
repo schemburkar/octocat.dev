@@ -9,15 +9,11 @@ export default function Footer() {
   return (
     <footer className="bg-accent-1 dark:bg-gray-600 dark:border-gray-300 border-t border-accent-2">
       <Container>
-        <div className="py-28 grid grid-rows-2 lg:grid-flow-col items-center">
+        <div className="py-28 grid grid-flow-col lg:grid-flow-row grid-rows-4 lg:grid-cols-2  lg:grid-rows-3 items-center">
           <h3 className="text-4xl lg:text-3xl font-bold tracking-tighter leading-tight text-center grid-r lg:text-left mb-10 lg:mb-0 lg:pr-4">
             <span className="text-2xl">Created By</span> Shubhan Chemburkar.
           </h3>
-          <div className='text-center lg:text-left my-4 flex  flex-col lg:flex-row  gap-4'>
-            <Link href={"/"} className='hover:underline'>Home</Link>
-            <Link href={"/pages/about"} className='hover:underline'>About</Link>
-            <Link href={"https://www.buymeacoffee.com/shubhan"} target={'_blank'} className='hover:underline'>Support with <i>Buy me a Coffee </i>{external}</Link>
-          </div>
+
           <div className="grid gap-y-4 lg:grid-flow-col lg:gap-x-4 justify-center lg:pl-4">
             <a className='bg-purple-600 py-1 px-8  lg:px-3 text-white border border-black group hover:bg-white font-bold' rel='me' href={"https://fosstodon.org/@shubhan"}>
               <svg className="group-hover:fill-purple-800 h-8 w-8 fill-gray-900 inline-block m-1" viewBox="0 0 32 32" ><path d="M 15.9375 4.03125 C 12.917 4.0435 9.9179219 4.4269844 8.3574219 5.1464844 C 8.3574219 5.1464844 5 6.6748594 5 11.880859 C 5 18.077859 4.9955 25.860234 10.5625 27.365234 C 12.6945 27.938234 14.527953 28.061562 16.001953 27.976562 C 18.676953 27.825562 20 27.005859 20 27.005859 L 19.910156 25.029297 C 19.910156 25.029297 18.176297 25.640313 16.029297 25.570312 C 13.902297 25.495313 11.6615 25.335688 11.3125 22.679688 C 11.2805 22.432688 11.264625 22.182594 11.265625 21.933594 C 15.772625 23.052594 19.615828 22.420969 20.673828 22.292969 C 23.627828 21.933969 26.199344 20.081672 26.527344 18.388672 C 27.041344 15.720672 26.998047 11.880859 26.998047 11.880859 C 26.998047 6.6748594 23.646484 5.1464844 23.646484 5.1464844 C 22.000984 4.3779844 18.958 4.019 15.9375 4.03125 z M 12.705078 8.0019531 C 13.739953 8.0297031 14.762578 8.4927031 15.392578 9.4707031 L 16.001953 10.505859 L 16.609375 9.4707031 C 17.874375 7.5037031 20.709594 7.6264375 22.058594 9.1484375 C 23.302594 10.596438 23.025391 11.531 23.025391 18 L 23.025391 18.001953 L 20.578125 18.001953 L 20.578125 12.373047 C 20.578125 9.7380469 17.21875 9.6362812 17.21875 12.738281 L 17.21875 16 L 14.787109 16 L 14.787109 12.738281 C 14.787109 9.6362812 11.429688 9.7360938 11.429688 12.371094 L 11.429688 18 L 8.9765625 18 C 8.9765625 11.526 8.7043594 10.585438 9.9433594 9.1484375 C 10.622859 8.3824375 11.670203 7.9742031 12.705078 8.0019531 z" /></svg>
@@ -37,6 +33,27 @@ export default function Footer() {
               <span className="group-hover:text-black font-normal text-sm">@shubhan3009</span>
             </a>
           </div>
+
+
+          <div className='text-center lg:text-left my-4 flex  flex-col lg:flex-row  gap-4 lg:col-span-2 '>
+            <Link href={"/"} className='hover:underline'>Home</Link>
+            <Link href={"/pages/about"} className='hover:underline'>About</Link>
+            <Link href={"https://www.buymeacoffee.com/shubhan"} target={'_blank'} className='hover:underline'>Support with <i>Buy me a Coffee </i>{external}</Link>
+
+          </div>
+
+          <div className='text-center lg:text-left my-4 flex  flex-col lg:flex-row  gap-4 lg:col-span-2 '>
+            <Link href={"/search"} className='hover:underline'>Search</Link>
+            <Link href={"/feed.xml"} rel="alternate" type={"application/rss+xml"} className='hover:underline'>RSS</Link>
+            <Link href={"/sitemap.xml"} className='hover:underline'>Sitemap</Link>
+
+          </div>
+
+        
+
+
+
+
         </div>
       </Container>
     </footer>
