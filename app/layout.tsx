@@ -1,0 +1,66 @@
+import '../styles/index.css'
+import 'highlight.js/styles/vs2015.css'
+import fs from 'fs'
+import { join } from 'path'
+import { Description, HOME_OG_IMAGE_URL, Title } from '../lib/constants';
+import { Metadata } from 'next';
+import Layout from '../components/layout';
+import { BaseUrl } from '../lib/baseUrl';
+
+const title = `${Title} - ${Description}`;
+export const metadata: Metadata = {
+    title: title,
+    description: title,
+    openGraph: {
+        type: "website",
+        url: "https://octocat.dev",
+        title: title,
+        description: title,
+        siteName: title,
+        images: [{
+            url: HOME_OG_IMAGE_URL,
+        }],
+        locale: 'en'
+
+    },
+    alternates: {
+        canonical: "https://octocat.dev",
+        types: {
+            'application/rss+xml': [
+                { url: `${BaseUrl}/feed.xml`, title: Title },
+            ],
+        },
+    },
+    themeColor: '#000',
+    twitter: {
+        creator: '@shubhan3009',
+        title: Title,
+        site: Title,
+        card: "summary_large_image",
+        images: HOME_OG_IMAGE_URL
+    },
+
+};
+
+const RootLayout = ({ children, props }: LayoutProps) => {
+
+    console.log(props?.modal)
+    return (
+        <html lang="en">
+
+
+            <body className="dark:bg-trueDark dark:text-gray-200 duration-250 transition-colors">
+                <script dangerouslySetInnerHTML={{ __html: fs.readFileSync(join(process.cwd(), "_scripts", "pagescript.js"), 'utf8') }}></script>
+                {props?.modal}
+                <Layout>{children}</Layout>
+            </body>
+        </html>
+    );
+}
+
+type LayoutProps = {
+    children: React.ReactNode,
+    props: { [key: string]: React.ReactNode },
+}
+
+export default RootLayout;
