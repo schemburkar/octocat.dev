@@ -1,3 +1,4 @@
+'use client';
 import { useEffect } from 'react'
 import { darkTheme, lightTheme } from '../lib/constants';
 
