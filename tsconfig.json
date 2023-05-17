@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "target": "es6",
+    "target": "ESNext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -26,11 +26,16 @@
       }
     ]
   },
+  "ts-node": {
+    "esm": true,
+    "target": "nodenext",
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "_scripts/prebuild.mts"
   ],
   "exclude": [
     "node_modules"

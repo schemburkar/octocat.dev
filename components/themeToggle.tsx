@@ -6,11 +6,26 @@ const sun = <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewB
 const moon = <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" className="dark:hidden	text-2xl cursor-pointer " height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"></path></svg>
 const auto = <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" className="text-2xl cursor-pointer" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2V4a8 8 0 1 0 0 16z"></path></g></svg>
 
-declare global {
-    var updateTheme: () => void;
-}
 
-const updateTheme = () => globalThis.updateTheme && typeof globalThis.updateTheme === 'function' && globalThis.updateTheme();
+
+const updateTheme = () => {
+
+    //duplicated at pagescript.js
+    if (!globalThis.localStorage || !globalThis.document) {
+        return;
+    }
+
+    const storage = globalThis.localStorage;
+    const document = globalThis.document;
+
+    const isDarkTheme = storage.getItem('theme') === darkTheme || (storage.getItem("theme") === null && globalThis.matchMedia(`(prefers-color-scheme: ${darkTheme})`).matches);
+    if (isDarkTheme) {
+        document.documentElement.classList.add(darkTheme)
+    } else {
+        document.documentElement.classList.remove(darkTheme)
+    }
+
+}
 
 const onThemeChange = () => {
     if (globalThis.document && document.documentElement.classList.contains(darkTheme)) {
