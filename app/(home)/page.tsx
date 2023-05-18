@@ -1,12 +1,10 @@
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import { getDataAPIByType } from '../lib/data-api'
-import { ArchivePosts, Description, Title } from '../lib/constants'
-import { IItemData } from '../lib/FileFormat'
-import { saveSiteMap } from '../components/sitemap'
-import { saveFeedXML } from '../components/feed'
+import MoreStories from '../../components/more-stories'
+import HeroPost from '../../components/hero-post'
+import { getDataAPIByType } from '../../lib/data-api'
+import { ArchivePosts } from '../../lib/constants'
+import { IItemData } from '../../lib/FileFormat'
+import { saveSiteMap } from '../../components/sitemap'
+import { saveFeedXML } from '../../components/feed'
 import Link from 'next/link'
 
 type PageProps = { heroPosts: IItemData[], morePosts: IItemData[], archivePosts: number, pages: IItemData[] }
@@ -14,13 +12,13 @@ const Index = async () => {
 
     const { heroPosts, morePosts, archivePosts, pages } = await getStaticProps()
     return (<>
-        <Container compact>
+        <>
 
-        <Link id='sss' href={'/search'}>
+        {/* <Link id='sss' href={'/search'}>
                         {ArchivePosts}
-                    </Link>
+                    </Link> */}
 
-            <Intro pages={pages} search />
+            {/* <Intro pages={pages} search /> */}
             <section>
                 {heroPosts.map((heroPost, i) =>
                     <HeroPost key={i}
@@ -48,7 +46,7 @@ const Index = async () => {
                 <span className='block my-5 md:inline md:mx-5 md:my-0 hover:underline text-2xl'>
                     <Link href={'/archive'}>See all {archivePosts} posts from archive</Link></span>
             </section>
-        </Container>
+        </>
     </>
     )
 }

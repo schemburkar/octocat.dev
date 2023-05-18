@@ -8,6 +8,8 @@ import { Metadata } from 'next';
 import Layout from '../components/layout';
 import { BaseUrl } from '../lib/baseUrl';
 import { saveStyles } from '../components/saveStyles';
+import Header from '../components/header';
+import Container from '../components/container';
 
 const title = `${Title} - ${Description}`;
 export const metadata: Metadata = {
@@ -44,17 +46,12 @@ export const metadata: Metadata = {
 
 };
 
-const RootLayout = ({ children, ...props }: LayoutProps) => {
-
-    console.log(props?.modal)
+const RootLayout = ({ children }: LayoutProps) => {
     return (
         <html lang="en">
-
-
             <body className="dark:bg-trueDark dark:text-gray-200 duration-250 transition-colors">
-                <script dangerouslySetInnerHTML={{ __html: fs.readFileSync(join(process.cwd(), "_scripts", "pagescript.js"), 'utf8') }}></script>
-                {props?.modal}
-                        <Layout>{children}</Layout>
+                <script dangerouslySetInnerHTML={{ __html: fs.readFileSync(join(process.cwd(), "_scripts", "pagescript.js"), 'utf8').replaceAll('\r\n','').replaceAll('\n','')  }}></script>
+                {children}
             </body>
         </html>
     );
@@ -62,6 +59,6 @@ const RootLayout = ({ children, ...props }: LayoutProps) => {
 
 type LayoutProps = {
     children: React.ReactNode,
-} & { [key: string]: React.ReactNode }
+}
 
 export default RootLayout;

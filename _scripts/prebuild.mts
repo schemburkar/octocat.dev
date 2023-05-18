@@ -2,20 +2,15 @@
 import { readFile, writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 
-const saveStyles = async (theme: string, prefix?: string) => {
-    const target = `${process.cwd()}/styles`;
-    const path1 = `${process.cwd()}/node_modules/${theme}`;
-    const content = await readFile(path1);
+const saveStyles = async (themePath: string, prefix?: string, targetPath: string = '/styles') => {
+    const target = path.join(process.cwd(), targetPath);
+    const content = await readFile(path.join(process.cwd(), 'node_modules', themePath));
 
-    if (prefix) {
-        await mkdir(path.dirname(`${target}/${theme}`), { recursive: true });
-        await writeFile(`${target}/${theme}`, `.${prefix} {  ${content} }`, { encoding: 'utf-8', flag: 'w+' });
-    }
+    const targetThemePath = path.join(target, themePath);
+    await mkdir(path.dirname(targetThemePath), { recursive: true });
 
-    else {
-        await mkdir(path.dirname(`${target}/${theme}`), { recursive: true });
-        await writeFile(`${target}/${theme}`, content, { encoding: 'utf-8', flag: 'w+' });
-    }
+    const styleContent = prefix ? `.${prefix} {  ${content} }` : content;
+    await writeFile(targetThemePath, styleContent, { encoding: 'utf-8', flag: 'w+' });
 };
 
 
