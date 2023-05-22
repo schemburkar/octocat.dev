@@ -1,4 +1,3 @@
-'use server'
 import { getDataAPIByType } from "../../lib/data-api"
 import { IItemData, IItemDataForSearch } from "../../lib/FileFormat"
 import { SearchResult } from "./SearchResult";
