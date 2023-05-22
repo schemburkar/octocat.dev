@@ -6,18 +6,23 @@ import SearchList from "../../../search/SearchList";
 const SearchModal = ({ searchParams }: SearchModalProps) => {
     return <>
         <Modal>
-            <article className="p-2 bg-white dark:bg-black">
-                <CloseSearch>
-                    <div className='text-right mt-2'><a href='#' className="underline hover:text-success duration-200 transition-colors">Close Search</a><span className='text-xs p-1 mx-1 border-gray-300 border rounded text-'>ESC</span></div>
-                </CloseSearch>
-                <SearchInput />
-            </article>
-            <Suspense fallback={"WAIT"}>
-                {searchParams && searchParams.q ? <section className="overflow-y-scroll max-h-72  bg-white dark:bg-black p-3">
-                    {/* @ts-ignore */}
-                    <SearchList
-                        q={searchParams.q} /></section> : null}
-            </Suspense>
+            <section className="p-8 bg-white dark:bg-black">
+
+                <article className="p-2">
+                    <CloseSearch>
+                        <div className='text-right mt-2'><a href='#' className="underline hover:text-success duration-200 transition-colors">Close Search</a><span className='text-xs p-1 mx-1 border-gray-300 border rounded text-'>ESC</span></div>
+                    </CloseSearch>
+                    <SearchInput />
+                </article>
+                <Suspense fallback={"WAIT"}>
+                    <section className="overflow-y-scroll max-h-[50vh] will-change-auto p-3">
+                        {searchParams && searchParams.q ?
+                            // @ts-ignore 
+                            <SearchList
+                                q={searchParams.q} /> : null}
+                    </section>
+                </Suspense>
+            </section>
         </Modal>
     </>
 }
