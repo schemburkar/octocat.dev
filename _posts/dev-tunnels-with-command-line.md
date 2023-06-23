@@ -67,7 +67,7 @@ The client url would typically be `https://<tunnel_id>.<location/server>.devtunn
 
 Here is the default command line output
 
-```
+```plaintext
 Welcome to dev tunnels!
 CLI version: 1.0.701+d0b5027c0b
 
