@@ -22,9 +22,13 @@ export const SearchInput = () => {
         })
     }
 
+    const onKeyUp = (key: string) => {
+        if (key === "Escape") router.back();
+    }
+
     return <>
-        <input defaultValue={searchParams?.get('q') || ''} onChange={(e) => search(e.target.value)} autoComplete='off' id="search-input" tabIndex={0} className={'text-center w-full mt-5 text-4xl leading-normal p-3 dark:bg-black border-gray-300 border rounded'} type={'text'} placeholder='Search Posts and Pages' />
-        {pending ? <div className='text-gray-500 text-3xl' >Searching...</div> : ''}
+        <input defaultValue={searchParams?.get('q') || ''} onKeyUp={e => onKeyUp(e.key)} onChange={(e) => search(e.target.value)} autoComplete='off' id="search-input" tabIndex={0} className={'text-center w-full mt-5 text-4xl leading-normal p-3 dark:bg-black border-gray-300 border rounded'} type={'text'} placeholder='Search Posts and Pages' />
+        <div className={`text-gray-500 text-3xl ${pending ? 'visible' : 'invisible'}`} >Searching...</div>
     </>
 
 };
