@@ -3,18 +3,25 @@ import { SearchInput } from "../SearchInput";
 import SearchList from "../SearchList";
 
 const SearchPage = ({ searchParams }: SearchPageProps) => {
-    return <>
-        <h2 className="text-2xl">Search</h2>
-        <article className="p-2">
-            <SearchInput />
-        </article>
-        <Suspense fallback={"WAIT"}>
-            {searchParams && searchParams.q ?
-                // @ts-ignore Async COmponent
-                <SearchList
-                    q={searchParams.q} /> : null}
-        </Suspense>
-    </>
+    try {
+
+        return <>
+            <h2 className="text-2xl">Search</h2>
+            <article className="p-2">
+                <SearchInput />
+            </article>
+            <Suspense fallback={"WAIT"}>
+                {searchParams && searchParams.q ?
+                    // @ts-ignore Async COmponent
+                    <SearchList
+                        q={searchParams.q} /> : null}
+            </Suspense>
+        </>
+    }
+    catch {
+        console.log('error in SearchPage')
+        return null;
+    }
 }
 
 export default SearchPage;
