@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Modal from "../../../../components/modal";
-import { CloseSearch, SearchInput } from "../../../search/SearchInput";
-import SearchList from "../../../search/SearchList";
+import { CloseSearch, SearchInput } from "../../../(search)/SearchInput";
+import SearchList from "../../../(search)/SearchList";
 
 const SearchModal = ({ searchParams }: SearchModalProps) => {
     return <>
@@ -12,7 +12,7 @@ const SearchModal = ({ searchParams }: SearchModalProps) => {
                     <CloseSearch>
                         <div className='text-right mt-2'><a href='#' className="underline hover:text-success duration-200 transition-colors">Close Search</a><span className='text-xs p-1 mx-1 border-gray-300 border rounded text-'>ESC</span></div>
                     </CloseSearch>
-                    <SearchInput />
+                    <SearchInput page={'quick-search'}/>
                 </article>
                 <Suspense fallback={"WAIT"}>
                     <section className="overflow-y-scroll max-h-[50vh] will-change-auto p-3">

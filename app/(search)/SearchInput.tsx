@@ -3,7 +3,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ReactNode, useEffect, useTransition } from "react";
 import { useRef, useCallback } from 'react';
 
-export const SearchInput = () => {
+export const SearchInput = ({ page }) => {
 
     const searchParams = useSearchParams()
     const router = useRouter()
@@ -17,7 +17,7 @@ export const SearchInput = () => {
     const search = (q: string) => {
         invoke(() => {
             start(() => {
-                router.replace(`/search?q=${q}`);
+                router.replace(`/${page || 'search'}?q=${q}`);
             })
         })
     }

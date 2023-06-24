@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import { SearchInput } from "./SearchInput";
-import SearchList from "./SearchList";
+import { SearchInput } from "../SearchInput";
+import SearchList from "../SearchList";
 
 const SearchPage = ({ searchParams }: SearchPageProps) => {
     return <>
