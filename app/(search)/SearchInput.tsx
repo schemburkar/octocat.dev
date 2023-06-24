@@ -3,7 +3,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ReactNode, useEffect, useTransition } from "react";
 import { useRef, useCallback } from 'react';
 
-export const SearchInput = ({ page }) => {
+export const SearchInput = ({ page }: { page?: string }) => {
 
     const searchParams = useSearchParams()
     const router = useRouter()
