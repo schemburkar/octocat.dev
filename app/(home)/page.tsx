@@ -2,9 +2,9 @@ import MoreStories from '../../components/more-stories'
 import HeroPost from '../../components/hero-post'
 import { getDataAPIByType } from '../../lib/data-api'
 import { ArchivePosts } from '../../lib/constants'
-import { IItemData } from '../../lib/FileFormat'
+import { IItemData, IItemDataForSearch } from '../../lib/FileFormat'
 import { saveSiteMap } from '../../components/sitemap'
-import { saveFeedXML } from '../../components/feed'
+import { saveFeedXML, saveSearchData } from '../../components/feed'
 import Link from 'next/link'
 
 type PageProps = { heroPosts: IItemData[], morePosts: IItemData[], archivePosts: number, pages: IItemData[] }
@@ -66,12 +66,14 @@ const getStaticProps = async (): Promise<PageProps> => {
         'coverImageAspectRatio',
         'isArchive'
     ]);
-    const b = getDataAPIByType('pages').getAllItems(['title', 'slug', 'excerpt']);
+    const b = getDataAPIByType('pages').getAllItems(['title', 'date', 'slug', 'excerpt']);
 
     const [allPosts, pages] = await Promise.all([a, b]);
 
     await saveSiteMap([allPosts, pages]);
     await saveFeedXML([allPosts, pages]);
+
+    await saveSearchData(allPosts.concat(pages).map(mapSearchItem));
 
     const heroPosts = allPosts.filter(a => a.isHeroPost === true && a.isArchive !== true);
     const morePosts = allPosts.filter(a => a.isHeroPost !== true && a.isArchive !== true);
@@ -93,4 +95,15 @@ function* orderPostsForDisplay(posts: IItemData[]) {
         }
         yield element;
     }
+}
+
+const mapSearchItem = (item: IItemData): IItemDataForSearch => {
+    const { title, excerpt, date, slug, type, content } = item;
+    return ({
+        title, excerpt, date, slug, type,
+        search: {
+            title: title?.toLowerCase(), slug: slug.join('/').toLowerCase(), excerpt: excerpt?.toLowerCase(),
+            content: content ? content.toLowerCase() : null,
+        }
+    });
 }

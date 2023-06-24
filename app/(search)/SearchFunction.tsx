@@ -1,6 +1,6 @@
-import { getDataAPIByType } from "../../lib/data-api"
-import { IItemData, IItemDataForSearch } from "../../lib/FileFormat"
+import { IItemDataForSearch } from "../../lib/FileFormat"
 import { SearchResult } from "./SearchResult";
+import { readFile } from 'fs/promises'
 
 const search = async (searchText: string): Promise<SearchResult[]> => {
 
@@ -24,32 +24,9 @@ const search = async (searchText: string): Promise<SearchResult[]> => {
 
 export default search;
 
-const getItems = async () => {
-
-    const a = getDataAPIByType("posts").getAllItems([
-        'title',
-        'date',
-        'slug',
-        'excerpt'
-    ]);
-    const b = getDataAPIByType('pages').getAllItems(['title', 'date', 'slug', 'excerpt']);
-
-    const [allPosts, pages] = await Promise.all([a, b]);
-
-    const items = allPosts.concat(pages).map(mapItem);
-
-    return items;
-}
-
-const mapItem = (item: IItemData): IItemDataForSearch => {
-    const { title, excerpt, date, slug, type, content } = item;
-    return ({
-        title, excerpt, date, slug, type,
-        search: {
-            title: title?.toLowerCase(), slug: slug.join('/').toLowerCase(), excerpt: excerpt?.toLowerCase(),
-            content: content ? content.toLowerCase() : null,
-        }
-    });
+const getItems = async (): Promise<IItemDataForSearch[]> => {
+    const path = `${process.cwd()}/public/search.json`;
+    return JSON.parse(await readFile(path, 'utf-8'));
 }
 
 

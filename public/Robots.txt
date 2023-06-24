@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+User-agent: *
+Disallow: /search.json
+
 Sitemap: https://octocat.dev/sitemap.xml
