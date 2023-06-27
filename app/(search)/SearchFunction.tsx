@@ -1,3 +1,4 @@
+'use server'
 import { IItemDataForSearch } from "../../lib/FileFormat"
 import { SearchResult } from "./SearchResult";
 import { readFile } from 'fs/promises'

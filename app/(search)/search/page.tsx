@@ -3,8 +3,6 @@ import { SearchInput } from "../SearchInput";
 import SearchList from "../SearchList";
 
 const SearchPage = ({ searchParams }: SearchPageProps) => {
-    try {
-
         return <>
             <h2 className="text-2xl">Search</h2>
             <article className="p-2">
@@ -17,11 +15,6 @@ const SearchPage = ({ searchParams }: SearchPageProps) => {
                         q={searchParams.q} /> : null}
             </Suspense>
         </>
-    }
-    catch {
-        console.log('error in SearchPage')
-        return null;
-    }
 }
 
 export default SearchPage;
