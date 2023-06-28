@@ -1,27 +1,27 @@
 
-import Container from '../../components/container';
 import Header from '../../components/header';
-import Layout from '../../components/layout';
 import SearchButton from '../../components/SearchButton';
-
-
-
+import Alert from '../../components/alert'
+import Footer from '../../components/footer'
+import { BuyMeCoffee } from '../../components/BuyMeCoffee'
 const HomeLayout = ({ children }: LayoutProps) => {
     return (<>
-        <Layout>
-            <Container compact>
-                <Header>
-                    <SearchButton className={'hidden md:block'} />
-                </Header>
-                {children}
-            </Container>
-        </Layout>
+        <Header>
+            <SearchButton className={'hidden md:block'} />
+        </Header>
+
+        <main className={`min-h-screen container mx-auto px-2 lg:px-5`}>
+            {children}
+        </main>
+        <Footer />
+        <BuyMeCoffee />
+        <Alert />
     </>
     );
 }
 
 type LayoutProps = {
     children: React.ReactNode,
-} & { [key: string]: React.ReactNode }
+}
 
 export default HomeLayout;

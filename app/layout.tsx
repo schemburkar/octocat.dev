@@ -12,6 +12,7 @@ const title = `${Title} - ${Description}`;
 export const metadata: Metadata = {
     title: title,
     description: title,
+    metadataBase: new URL("https://octocat.dev"),
     openGraph: {
         type: "website",
         url: "https://octocat.dev",
@@ -40,8 +41,19 @@ export const metadata: Metadata = {
         site: Title,
         card: "summary_large_image",
         images: HOME_OG_IMAGE_URL,
-        description: ''
-    }
+        description: title
+    },
+    icons: {
+        icon: ["/favicons/favicon-32x32.png", "/favicons/favicon-16x16.png"],
+        apple: "/favicons/apple-touch-icon.png",
+        shortcut: "/favicons/favicon.ico",
+        other: {
+            rel: 'mask-icon',
+            url: '/favicons/safari-pinned-tab.svg'
+        }
+    },
+    manifest: "/favicons/site.webmanifest"
+
 };
 
 const RootLayout = ({ children }: LayoutProps) => {
