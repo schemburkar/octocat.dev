@@ -1,7 +1,9 @@
 import { IItemDataForSearch } from "../../../lib/FileFormat";
-import { SearchResult } from "../SearchResult";
+import { SearchResult } from "./SearchResult";
 
-export const searchFn = async (items: IItemDataForSearch[], searchText: string): Promise<SearchResult[]> => {
+export const searchFn = (items: IItemDataForSearch[], searchText: string): SearchResult[] => {
+
+    if (!searchText || !items) return [];
 
     const allItems = items;
     const escapeRegExp = searchText.toLowerCase().trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

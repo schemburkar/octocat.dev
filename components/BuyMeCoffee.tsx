@@ -22,7 +22,7 @@ export const BuyMeCoffee = () => {
             setIsExpanded(true);
         }
     };
-    return <>
+    return <aside>
         {isExpanded && <div className="fixed z-50  flex right-0 bottom-0  h-auto w-[25rem]  overflow-hidden">
             <div className={`${animation} max-w-md relative ml-auto mt-auto h-[40rem] mr-3 mb-20  p-1 bg-white w-full rounded-lg  bottom-0 right-0 left-0`}>
                 <iframe src={BuyMeCoffeePage} className='w-full h-full' />
@@ -35,5 +35,5 @@ export const BuyMeCoffee = () => {
                 </button>
             </div>
         </div>
-    </>;
+    </aside>;
 };

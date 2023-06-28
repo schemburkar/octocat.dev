@@ -1,10 +1,10 @@
-import MoreStories from '../../components/more-stories'
-import HeroPost from '../../components/hero-post'
-import { getDataAPIByType } from '../../lib/data-api'
-import { ArchivePosts } from '../../lib/constants'
-import { IItemData, IItemDataForSearch } from '../../lib/FileFormat'
-import { saveSiteMap } from '../../components/sitemap'
-import { saveFeedXML, saveSearchData } from '../../components/feed'
+import MoreStories from '../../../components/more-stories'
+import HeroPost from '../../../components/hero-post'
+import { getDataAPIByType } from '../../../lib/data-api'
+import { ArchivePosts } from '../../../lib/constants'
+import { IItemData, IItemDataForSearch } from '../../../lib/FileFormat'
+import { saveSiteMap } from '../../../components/sitemap'
+import { saveFeedXML, saveSearchData } from '../../../components/feed'
 import Link from 'next/link'
 
 type PageProps = { heroPosts: IItemData[], morePosts: IItemData[], archivePosts: number, pages: IItemData[] }
@@ -13,12 +13,6 @@ const Index = async () => {
     const { heroPosts, morePosts, archivePosts, pages } = await getStaticProps()
     return (<>
         <>
-
-        {/* <Link id='sss' href={'/search'}>
-                        {ArchivePosts}
-                    </Link> */}
-
-            {/* <Intro pages={pages} search /> */}
             <section>
                 {heroPosts.map((heroPost, i) =>
                     <HeroPost key={i}
@@ -73,8 +67,6 @@ const getStaticProps = async (): Promise<PageProps> => {
     await saveSiteMap([allPosts, pages]);
     await saveFeedXML([allPosts, pages]);
 
-    await saveSearchData(allPosts.concat(pages).map(mapSearchItem));
-
     const heroPosts = allPosts.filter(a => a.isHeroPost === true && a.isArchive !== true);
     const morePosts = allPosts.filter(a => a.isHeroPost !== true && a.isArchive !== true);
 
@@ -95,15 +87,4 @@ function* orderPostsForDisplay(posts: IItemData[]) {
         }
         yield element;
     }
-}
-
-const mapSearchItem = (item: IItemData): IItemDataForSearch => {
-    const { title, excerpt, date, slug, type, content } = item;
-    return ({
-        title, excerpt, date, slug, type,
-        search: {
-            title: title?.toLowerCase(), slug: slug.join('/').toLowerCase(), excerpt: excerpt?.toLowerCase(),
-            content: content ? content.toLowerCase() : null,
-        }
-    });
 }

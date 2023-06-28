@@ -6,6 +6,8 @@
 @tailwind components;
 /* Stop purging. */
 
+@import './markdown-styles.module.scss';
+
 /* Write you own custom component styles here */
 
 /* Start purging... */

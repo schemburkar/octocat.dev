@@ -7,9 +7,9 @@ type LayoutProps = { children: React.ReactNode }
 const Layout = ({ children }:LayoutProps) => {
   return (
     <>
-      <div className={`min-h-screen`}>
-        <main>{children}</main>
-      </div>
+      <main className={`min-h-screen`}>
+        {children}
+      </main>
       <Footer />
       <BuyMeCoffee />
       <Alert />

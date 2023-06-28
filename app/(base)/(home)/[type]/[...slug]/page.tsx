@@ -1,15 +1,14 @@
 import { notFound } from "next/navigation";
 import { rehype } from "rehype";
 import rehypeHighlight from "rehype-highlight";
-import { ArchiveBanner } from "../../../../components/ArchiveBanner";
-import PostBody from "../../../../components/post-body";
-import PostHeader from "../../../../components/post-header";
-import { getDataAPIByType } from "../../../../lib/data-api";
-import markdownToHtml from "../../../../lib/markdownToHtml";
-import markdownStyles from '../../../../components/markdown-styles.module.css'
+import { ArchiveBanner } from "../../../../../components/ArchiveBanner";
+import PostBody from "../../../../../components/post-body";
+import PostHeader from "../../../../../components/post-header";
+import { getDataAPIByType } from "../../../../../lib/data-api";
+import markdownToHtml from "../../../../../lib/markdownToHtml";
 import { Metadata } from "next";
-import { BaseUrl } from "../../../../lib/baseUrl";
-import { Description, Title } from "../../../../lib/constants";
+import { BaseUrl } from "../../../../../lib/baseUrl";
+import { Description, Title } from "../../../../../lib/constants";
 
 const Post = async ({ params: { type, slug } }: PostParams) => {
     if (!type || !slug) notFound();
@@ -26,7 +25,7 @@ const Post = async ({ params: { type, slug } }: PostParams) => {
         'isArchive',
         'excerpt'
     ])
-    const content = await markdownToHtml(post.content || '', { anchorLinkClassName: markdownStyles['link-anchor'], clobberPrefix: '' })
+    const content = await markdownToHtml(post.content || '', { anchorLinkClassName: 'link-anchor', clobberPrefix: '' })
 
     const parsedContent = await rehype()
         .data('settings', { fragment: true })
