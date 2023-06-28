@@ -1,6 +1,6 @@
 ---
 title: 'About'
-excerpt: 'About the Author, Shubhan Chemburkar - is a experienced software engineer having 13 years of experience in developing products in Microsoft stack for enterprise scale products and apps'
+excerpt: 'About the Author, Shubhan Chemburkar - is a experienced software engineer having 14 years of experience in developing products in Microsoft stack for enterprise scale products and apps'
 coverImage: ''
 date: ''
 author:
@@ -15,7 +15,7 @@ ogImage:
 
 ![profile picture of Shubhan Chemburkar](https://octocat.dev/assets/blog/authors/default.png)
  
-**Shubhan Chemburkar** is a experienced software engineer having 13.5 years of experience in developing products in Microsoft stack.
+**Shubhan Chemburkar** is a experienced software engineer having 14 years of experience in developing products in Microsoft stack.
 
 This website [octocat.dev](octocat.dev) is his personal blog on all developer related stuff. Expect posts on Azure, .NET, React and more!
 
@@ -25,7 +25,7 @@ You can always reach out to him on [Twitter](https://twitter.com/intent/tweet?sc
 
 ## **Summary**
 
-- Experienced Software Architect with 13.5 years of experience in developing products for enterprise scale products and apps.
+- Experienced Software Architect with 14 years of experience in developing products for enterprise scale products and apps.
 - Extensive work in .NET web apps, React, apps, and websites.
 - Worked in fast paced agile environments with focused implementation & product delivery.
 - Solving enterprise scale problems like user experience, performance, security, and integrations.

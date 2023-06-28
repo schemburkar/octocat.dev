@@ -1,5 +1,5 @@
 import { writeFile } from 'fs/promises'
-import { IItemData } from "../lib/FileFormat";
+import { IItemData, IItemDataForSearch } from "../lib/FileFormat";
 import { Title, Description } from "../lib/constants";
 
 const feedXML = (baseUrl: string, ...items: string[]) => {
@@ -75,4 +75,10 @@ export const saveFeedXML = async ([posts, pages]: [IItemData[], IItemData[]]) =>
     // writes feed.xml to public directory
     const path = `${process.cwd()}/public/feed.xml`;
     await writeFile(path, await getFeedXML([posts, pages]), "utf8");
+}
+
+export const saveSearchData = async (content: IItemDataForSearch[]) => {
+    // writes search.json to public directory
+    const path = `${process.cwd()}/public/search.json`;
+    await writeFile(path, await JSON.stringify(content), "utf8");
 }

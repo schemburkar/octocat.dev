@@ -1,7 +1,6 @@
 import PostPreview from './post-preview'
 import TextPost from './text-post'
 import { IItemData } from '../lib/FileFormat'
-import el from 'date-fns/esm/locale/el/index.js';
 
 // const mapGrid = (items: IItemData[], renderer: (item: IItemData, index: number, span: boolean) => JSX.Element) => {
 //   let counter = 0;
@@ -23,7 +22,7 @@ export default function MoreStories({ posts, title }: MoreStoriesProps) {
       <h2 className="mb-8 text-4xl md:text-6xl font-bold tracking-tighter leading-tight">
         {title}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-10 md:gap-y-[5rem] mb-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-20 xl:gap-x-32 gap-y-10 md:gap-y-[5rem] mb-32">
 
         {posts.map((post, i) => (
 
