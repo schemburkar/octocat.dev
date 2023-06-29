@@ -8,7 +8,6 @@ author:
   picture: "/assets/blog/authors/default.png"
 ogImage:
   url: "/assets/blog/new-blog-with-nextjs/new-blog-cover.jpg"
-isHeroPost: false
 ---
 
 ## Hello to **octocat.dev**.

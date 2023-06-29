@@ -8,7 +8,6 @@ author:
   picture: "/assets/blog/authors/default.png"
 ogImage:
   url: "/assets/blog/improving-developer-productivity-github/cover.jpg"
-isHeroPost: false
 coverImageAspectRatio: 1.5
 ---
 

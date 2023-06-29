@@ -8,7 +8,6 @@ author:
   picture: "/assets/blog/authors/default.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/01/mike-van-den-bos-jf1eomjlqi0-unsplash.jpg"
-isHeroPost: false
 coverImageAspectRatio: 1.5
 ---
 

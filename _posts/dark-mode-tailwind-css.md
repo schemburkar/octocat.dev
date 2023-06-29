@@ -8,7 +8,6 @@ author:
   picture: "/assets/blog/authors/default.png"
 ogImage:
   url: "/assets/blog/dark-mode-tailwind-css/cover.jpg"
-isHeroPost: false
 ---
 
 In this post, we'll look at adding dark mode to your Next.js website or blog using Tailwind CSS.

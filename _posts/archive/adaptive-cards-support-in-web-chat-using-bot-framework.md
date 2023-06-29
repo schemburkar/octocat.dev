@@ -9,7 +9,6 @@ author:
   picture: "/assets/blog/authors/default.png"
 ogImage:
   url: ""
-isHeroPost: false
 isArchive: true
 ---
 

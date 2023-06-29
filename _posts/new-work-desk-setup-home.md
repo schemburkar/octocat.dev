@@ -8,7 +8,6 @@ author:
   picture: "/assets/blog/authors/default.png"
 ogImage:
   url: ""
-isHeroPost: false
 ---
 
 Having a great working desk is important for a good developer. Since the pandemic, working from home is the new normal. Us developers now spend at least 8 hours of the day on the desk at home, trying to work through all the meetings and assignments. 
