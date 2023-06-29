@@ -8,7 +8,7 @@ author:
   picture: "/assets/blog/authors/default.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/05/ilja-tulit-coreqiuk1qm-unsplash-dark-light.jpg"
-isHeroPost: true
+isHeroPost: false
 coverImageAspectRatio: 1.5
 ---
 

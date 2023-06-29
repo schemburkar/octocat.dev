@@ -53,3 +53,7 @@
 .markdown h2:hover .link-anchor, .markdown h3:hover .link-anchor{
   @apply opacity-80;
 }
+
+.markdown table {
+  @apply overflow-x-scroll sm:overflow-x-auto inline-block sm:table max-w-full sm:max-w-none;
+}
