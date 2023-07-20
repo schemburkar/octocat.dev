@@ -5,7 +5,7 @@ coverImage: "https://worldwidecode.files.wordpress.com/2023/01/towfiqu-barbhuiya
 date: "2023-01-30T07:00:00.000Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/01/towfiqu-barbhuiya-fna5pazqhmm-unsplash.jpg"
 isHeroPost: false

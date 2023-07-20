@@ -2,7 +2,7 @@ export const GitHubProfile = 'https://github.com/schemburkar'
 export const GitHubRepo = 'https://github.com/schemburkar/octocat.dev'
 export const CMS_NAME = 'Markdown'
 export const HOME_OG_IMAGE_URL =
-  'https://octocat.dev/_next/image?url=%2Fassets%2Fblog%2Fnew-blog-with-nextjs%2Fnew-blog-cover.jpg&w=1920&q=75'
+  'https://worldwidecode.files.wordpress.com/2021/10/new-blog-cover.jpg?w=1920&q=75'
 
 export const Title = "octocat.dev"
 export const Description = "A Developer's blog."

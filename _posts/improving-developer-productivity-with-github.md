@@ -1,13 +1,13 @@
 ---
 title: "Improving developer productivity with GitHub"
 excerpt: "A look at how moving to GitHub has helped improve developer productivity by providing a better way to share code and collaborate with others."
-coverImage: "/assets/blog/improving-developer-productivity-github/cover.jpg"
+coverImage: "https://worldwidecode.files.wordpress.com/2023/07/improving-developer-productivity-github.jpg"
 date: "2022-06-10T10:14:00.000Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
-  url: "/assets/blog/improving-developer-productivity-github/cover.jpg"
+  url: "https://worldwidecode.files.wordpress.com/2023/07/improving-developer-productivity-github.jpg"
 isHeroPost: false
 coverImageAspectRatio: 1.5
 ---
