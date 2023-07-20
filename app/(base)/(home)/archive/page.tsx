@@ -9,11 +9,10 @@ const Index = async () => {
     const { archivePosts } = await getStaticProps()
     return (<>
         <>
-
             <section>
                 {archivePosts.length > 0 && <MoreStories title={ArchivePosts} posts={archivePosts} />}
             </section>
-
+            
         </>
     </>
     )

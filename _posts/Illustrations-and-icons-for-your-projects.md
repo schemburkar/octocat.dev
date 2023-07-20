@@ -5,7 +5,7 @@ coverImage: "/assets/blog/Illustrations-and-icons-for-your-projects/cover.svg"
 date: "2022-07-26T09:00:00Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: '/assets/blog/Illustrations-and-icons-for-your-projects/cover.svg'
 isHeroPost: false

@@ -5,7 +5,7 @@ coverImage: "https://worldwidecode.files.wordpress.com/2023/06/ian-battaglia-9dr
 date: "2023-06-22T05:01:00.000Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/06/ian-battaglia-9drs5e_rguc-unsplash.jpg"
 isHeroPost: true

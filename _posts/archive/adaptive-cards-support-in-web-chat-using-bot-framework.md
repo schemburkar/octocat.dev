@@ -6,7 +6,7 @@ coverImage: ""
 date: "2019-09-05T13:37:30+05:30"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: ""
 isHeroPost: false

@@ -1,13 +1,13 @@
 ---
 title: "Supporting  Dark Mode with Tailwind CSS and Next.js"
 excerpt: "Let's look at adding dark mode to your Next.js website or blog using Tailwind CSS; By taking a deep dive at what's needed to support dark mode"
-coverImage: "/assets/blog/dark-mode-tailwind-css/cover.jpg"
+coverImage: "https://worldwidecode.files.wordpress.com/2023/07/dark-mode-tailwind-css.jpg"
 date: "2021-10-30T11:04:55.667Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
-  url: "/assets/blog/dark-mode-tailwind-css/cover.jpg"
+  url: "https://worldwidecode.files.wordpress.com/2023/07/dark-mode-tailwind-css.jpg"
 isHeroPost: false
 ---
 
