@@ -5,7 +5,7 @@ coverImage: ""
 date: "2022-01-08T00:00:00Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: ""
 ---

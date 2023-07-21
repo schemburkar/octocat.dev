@@ -8,6 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     legacyBrowsers: false,
+    appDir: true,
   },
 }
 

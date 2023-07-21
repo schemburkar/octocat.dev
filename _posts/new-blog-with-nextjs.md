@@ -1,13 +1,13 @@
 ---
 title: "New Blog. Hello to octocat.dev"
 excerpt: "This is my new blog octocat.dev. Going forward all my new blog posts will appear in this blog."
-coverImage: "/assets/blog/new-blog-with-nextjs/new-blog-cover.jpg"
+coverImage: "https://worldwidecode.files.wordpress.com/2021/10/new-blog-cover.jpg"
 date: "2021-10-27T05:35:07.322Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
-  url: "/assets/blog/new-blog-with-nextjs/new-blog-cover.jpg"
+  url: "https://worldwidecode.files.wordpress.com/2021/10/new-blog-cover.jpg"
 ---
 
 ## Hello to **octocat.dev**.

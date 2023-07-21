@@ -1,11 +1,13 @@
 import cn from 'classnames'
 import PostLink from './PostLink'
 import Image from 'next/legacy/image'
+import customImageLoader from '../lib/image'
 
 
 export default function CoverImage({ title, src, slug, height, width, type, className, responsive = true, rounded = true }: CoverImageProps) {
   const image = (
     <Image
+      loader={src.startsWith('https')? customImageLoader: undefined}
       src={src}
       alt={`Cover Image for ${title}`}
       className={cn('shadow-sm', {
