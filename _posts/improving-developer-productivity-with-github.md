@@ -8,7 +8,6 @@ author:
   picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/07/improving-developer-productivity-github.jpg"
-isHeroPost: false
 coverImageAspectRatio: 1.5
 ---
 

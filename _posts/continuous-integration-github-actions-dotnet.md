@@ -10,8 +10,6 @@ author:
   picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: 'https://worldwidecode.files.wordpress.com/2021/09/roman-synkevych-wx2l8l-fgea-unsplash.jpg?w=1080'
-isHeroPost: false
-
 ---
 
 [GitHub Actions](https://github.com/features/actions) is a new way to run a CI pipeline, especially for open source projects.

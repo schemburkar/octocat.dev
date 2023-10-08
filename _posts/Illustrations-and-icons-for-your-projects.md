@@ -8,7 +8,6 @@ author:
   picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: '/assets/blog/Illustrations-and-icons-for-your-projects/cover.svg'
-isHeroPost: false
 ---
 
 Illustrations and icons are important piece to have a good overall user experience and to make your project more attractive.

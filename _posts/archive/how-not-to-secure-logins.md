@@ -10,7 +10,6 @@ author:
   picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2021/05/security-wallpaper.jpg?w=1080"
-isHeroPost: false
 isArchive: true
 ---
 

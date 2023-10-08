@@ -8,7 +8,6 @@ author:
   picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/06/ian-battaglia-9drs5e_rguc-unsplash.jpg"
-isHeroPost: true
 coverImageAspectRatio: 1.6
 ---
 

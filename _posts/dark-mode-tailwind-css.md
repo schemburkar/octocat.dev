@@ -8,7 +8,6 @@ author:
   picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/07/dark-mode-tailwind-css.jpg"
-isHeroPost: false
 ---
 
 In this post, we'll look at adding dark mode to your Next.js website or blog using Tailwind CSS.
