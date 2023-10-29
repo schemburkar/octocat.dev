@@ -30,6 +30,7 @@ export default function MoreStories({ posts, title }: MoreStoriesProps) {
             <PostPreview
               key={i}
               post={post}
+              prefetch={i<=2}
             />
             :
             <TextPost key={i}
@@ -39,6 +40,7 @@ export default function MoreStories({ posts, title }: MoreStoriesProps) {
               slug={post.slug}
               excerpt={post.excerpt}
               type={post.type}
+              prefetch={i<=2}
             />
         ))}
       </div>

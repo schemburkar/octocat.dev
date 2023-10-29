@@ -9,14 +9,15 @@ const TextPost = ({
   excerpt,
   author,
   slug,
-  type
-}: IItemData) => {
+  type,
+  prefetch
+}: IItemData & { prefetch?:boolean}) => {
   return (
     <article className="md:col-start-1 md:col-end-3 shadow-md md:shadow-none shadow-gray-200 dark:shadow-gray-800 rounded-md" >
       <div className="md:grid md:grid-cols-1 md:gap-x-16 lg:gap-x-32 md:my-4 px-4 py-4 md:p-0">
         <span>
           <h3 className="mb-4 text-2xl leading-snug">
-            <PostLink type={type} slug={slug} className="hover:underline">{title}</PostLink>
+            <PostLink prefetch={prefetch} type={type} slug={slug} className="hover:underline">{title}</PostLink>
           </h3>
           <div className="mb-4 text-lg">
             {date && <DateFormatter dateString={date} />}

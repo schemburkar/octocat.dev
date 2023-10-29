@@ -32,13 +32,13 @@ const Index = async () => {
             </section>
             <section>
                 <h2 className="md:inline-block md:mb-8 text-4xl md:text-6xl font-bold tracking-tighter leading-tight hover:underline">
-                    <Link href={'/archive'}>
+                    <Link prefetch={false} href={'/archive'}>
                         {ArchivePosts}
                     </Link>
 
                 </h2>
                 <span className='block my-5 md:inline md:mx-5 md:my-0 hover:underline text-2xl'>
-                    <Link href={'/archive'}>See all {archivePosts} posts from archive</Link></span>
+                    <Link prefetch={false}  href={'/archive'}>See all {archivePosts} posts from archive</Link></span>
             </section>
         </>
     </>
@@ -66,7 +66,7 @@ const getStaticProps = async (): Promise<PageProps> => {
 
     await saveSiteMap([allPosts, pages]);
     await saveFeedXML([allPosts, pages]);
-
+    
     const heroPosts = allPosts.filter(a => a.isHeroPost === true && a.isArchive !== true);
     const morePosts = allPosts.filter(a => a.isHeroPost !== true && a.isArchive !== true);
 

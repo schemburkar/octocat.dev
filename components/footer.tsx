@@ -40,15 +40,15 @@ export default function Footer() {
 
           </div>
           <div className='text-center lg:text-left my-4 flex  flex-col lg:flex-row  gap-4  '>
-            <Link href={"/"} className='hover:underline'>Home</Link>
+            <Link prefetch={false} href={"/"} className='hover:underline'>Home</Link>
             <Link href={"/pages/about"} className='hover:underline'>About</Link>
             <Link href={"https://www.buymeacoffee.com/shubhan"} target={'_blank'} className='hover:underline'>Support with <i>Buy me a Coffee </i>{external}</Link>
 
           </div>
           <div className='text-center lg:text-left my-4 flex  flex-col lg:flex-row  gap-4 '>
-            <Link href={"/search"} className='hover:underline'>Search</Link>
-            <Link href={"/feed.xml"} rel="alternate" type={"application/rss+xml"} className='hover:underline'>RSS</Link>
-            <Link href={"/sitemap.xml"} className='hover:underline'>Sitemap</Link>
+            <Link prefetch={false} href={"/search"} className='hover:underline'>Search</Link>
+            <Link prefetch={false} href={"/feed.xml"} rel="alternate" type={"application/rss+xml"} className='hover:underline'>RSS</Link>
+            <Link prefetch={false} href={"/sitemap.xml"} className='hover:underline'>Sitemap</Link>
           </div>
         </section>
       </Container>

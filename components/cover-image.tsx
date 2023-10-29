@@ -4,9 +4,9 @@ import Image from 'next/legacy/image'
 import customImageLoader from '../lib/image'
 
 
-export default function CoverImage({ title, src, slug, height, width, type, className, responsive = true, rounded = true }: CoverImageProps) {
+export default function CoverImage({ title, src, slug, height, width, type, className, responsive = true, rounded = true, prefetch }: CoverImageProps) {
   const image = (
-    <Image
+    <Image 
       loader={src.startsWith('https')? customImageLoader: undefined}
       src={src}
       alt={`Cover Image for ${title}`}
@@ -23,7 +23,7 @@ export default function CoverImage({ title, src, slug, height, width, type, clas
   return (
     <div className={`sm:mx-0 ${className}`}>
       {slug ? (
-        <PostLink type={type} slug={slug} aria-label={title}>{image}</PostLink>
+        <PostLink prefetch={prefetch} type={type} slug={slug} aria-label={title}>{image}</PostLink>
       ) : (
         image
       )}
@@ -37,4 +37,5 @@ type CoverImageProps = {
   title: string, src: string, slug?: string[], height: number, width: number, type: string, className?: string,
   responsive?: boolean
   rounded?: boolean
+  prefetch?: boolean
 }

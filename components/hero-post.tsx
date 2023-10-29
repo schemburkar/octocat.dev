@@ -17,7 +17,7 @@ export default function HeroPost({
   return (
     <article className='shadow-md shadow-gray-200 dark:shadow-gray-800 md:shadow-none  mb-10 md:mb-0 rounded-md'>
       <header className="mb-8 md:mb-14">
-        {coverImage && <CoverImage
+        {coverImage && <CoverImage prefetch
           title={title || ''}
           src={coverImage}
           slug={slug || ''}

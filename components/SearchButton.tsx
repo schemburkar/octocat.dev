@@ -17,7 +17,7 @@ const SearchButton = ({ className }: SearchButtonProps) => {
             >{search}{'Search'}</button>
         </ClearSearch>;
 
-    return <Link href={'/search'}><button className={`mr-2 border-gray-500 border px-2 py-0.5 rounded-md cursor-text w-full md:w-60`}
+    return <Link prefetch={false}  href={'/search'}><button className={`mr-2 border-gray-500 border px-2 py-0.5 rounded-md cursor-text w-full md:w-60`}
     >{search}{'Search'}</button></Link>;
 
 };
