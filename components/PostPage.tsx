@@ -1,16 +1,16 @@
 import { notFound } from "next/navigation";
 import { rehype } from "rehype";
 import rehypeHighlight from "rehype-highlight";
-import { ArchiveBanner } from "../../../../../components/ArchiveBanner";
-import PostBody from "../../../../../components/post-body";
-import PostHeader from "../../../../../components/post-header";
-import { getDataAPIByType } from "../../../../../lib/data-api";
-import markdownToHtml from "../../../../../lib/markdownToHtml";
+import { ArchiveBanner } from "./ArchiveBanner";
+import PostBody from "./post-body";
+import PostHeader from "./post-header";
+import { getDataAPIByType } from "../lib/data-api";
+import markdownToHtml from "../lib/markdownToHtml";
 import { Metadata } from "next";
-import { BaseUrl } from "../../../../../lib/baseUrl";
-import { Description, Title } from "../../../../../lib/constants";
+import { BaseUrl } from "../lib/baseUrl";
+import { Description, Title } from "../lib/constants";
 
-const Post = async ({ params: { type, slug } }: PostParams) => {
+const Post = async ({ type, slug }: PostParams) => {
     if (!type || !slug) notFound();
 
     let post = await getDataAPIByType(type).getItemsBySlug(slug, [
@@ -56,26 +56,14 @@ const Post = async ({ params: { type, slug } }: PostParams) => {
 }
 
 type PostParams = {
-    params: {
-        type: "posts" | "pages"
-        slug: string[]
-    }
-}
-
-export async function generateStaticParams() {
-    const [posts, pages] = await Promise.all([getDataAPIByType("posts").getAllItems(['slug']), getDataAPIByType("pages").getAllItems(['slug'])]);
-    return posts.concat(pages).map((post) => ({
-        slug: post.slug,
-        type: post.type
-    }));
-
+    type: "posts" | "pages"
+    slug: string[]
 }
 
 export default Post;
 
-export async function generateMetadata({ params }: PostParams): Promise<Metadata> {
-
-    let post = await getDataAPIByType(params.type).getItemsBySlug(params.slug, [
+export async function generateMetadataForPost({ type, slug }: PostParams): Promise<Metadata> {
+    let post = await getDataAPIByType(type).getItemsBySlug(slug, [
         'title',
         'date',
         'slug',

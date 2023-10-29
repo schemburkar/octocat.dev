@@ -6,6 +6,7 @@ const nextConfig = {
     domains: ['assets.vercel.com', 'worldwidecode.files.wordpress.com', 'octocat.dev'],
     unoptimized:true
   },
+  output:'export',
   reactStrictMode: true,
 }
 
