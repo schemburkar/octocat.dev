@@ -4,7 +4,7 @@
     "dev": "next",
     "build": "yarn pre-build && next build",
     "start": "next start",
-    "pre-build":"ts-node ./_scripts/prebuild.mts"
+    "pre-build":"node --no-warnings=ExperimentalWarning --loader ts-node/esm ./_scripts/prebuild.mts"
   },
   "dependencies": {
     "classnames": "2.3.2",
