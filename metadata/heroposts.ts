@@ -1,6 +1,6 @@
 const heroposts = [
     {
-        slug: 'dev-tunnels-with-command-line'
+        slug: ''
     }
 ];
 export default heroposts;
