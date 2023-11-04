@@ -93,7 +93,6 @@ export async function generateMetadataForPost({ type, slug }: PostParams): Promi
         },
 
 
-        themeColor: '#000',
         twitter: {
             creator: '@shubhan3009',
             title: `${post.title} | ${Title} - ${Description}`,

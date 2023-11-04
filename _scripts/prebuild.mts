@@ -32,6 +32,10 @@ export const savePage = async (type: string, slug: string[]) => {
 import Post, { generateMetadataForPost} from "@components/PostPage";
 import { Metadata } from "next";
 
+export const viewport = {
+    themeColor: '#000',
+}
+
 const Page = ()=>{
     return <Post  slug={[${slug.map(s => `'${s}'`).join(',')}]} type={'${type}'}  />
 } 

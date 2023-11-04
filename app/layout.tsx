@@ -9,6 +9,11 @@ import { BaseUrl } from '../lib/baseUrl';
 import HTML from '../components/html';
 
 const title = `${Title} - ${Description}`;
+
+export const viewport = {
+    themeColor: '#000',
+}
+
 export const metadata: Metadata = {
     title: title,
     description: title,
@@ -34,7 +39,6 @@ export const metadata: Metadata = {
         },
     },
 
-    themeColor: '#000',
     twitter: {
         creator: '@shubhan3009',
         title: Title,
