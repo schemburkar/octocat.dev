@@ -7,7 +7,6 @@ const HomeLayout = ({ children, ...props }: LayoutProps) => {
 }
 
 type LayoutProps = {
-    children: React.ReactNode,
-} & { [key: string]: React.ReactNode }
-
+    children: React.ReactNode
+} 
 export default HomeLayout;
