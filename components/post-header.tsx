@@ -16,11 +16,11 @@ export default function PostHeader({ title, coverImage, date, author, type, slug
         <div className="block flex-grow">
           {author && author.name && <Avatar name={author.name} picture={author.picture} />}
         </div>
-        <div className="text-lg">
+        <div className="text-md">
           {date && <DateFormatter dateString={date} />}
         </div>
       </div>
-      <div className="mb-8 md:mb-16 sm:mx-0">
+      <div className="mb-8 md:mb-16 max-w-5xl m-auto">
         {coverImage &&
           <CoverImage rounded={false} title={title || ''} src={coverImage}  type={type}
            aspectRatio={aspectRatio} maxHeight={0.85} responsive={false} className={'text-center'} />
