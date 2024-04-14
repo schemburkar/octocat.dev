@@ -4,11 +4,10 @@
 const nextConfig = {
   images: {
     domains: ['assets.vercel.com', 'worldwidecode.files.wordpress.com', 'octocat.dev'],
+    unoptimized:true
   },
+  output:'export',
   reactStrictMode: true,
-  experimental: {
-    legacyBrowsers: false,
-  },
 }
 
 module.exports = nextConfig

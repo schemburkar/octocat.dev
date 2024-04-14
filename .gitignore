@@ -35,5 +35,12 @@ yarn-error.log*
 
 public/sitemap.xml
 public/feed.xml
+public/search.json
 
 .vscode
+
+#Generated Styles
+styles/highlight.js
+
+#Generated Pages
+(posts)

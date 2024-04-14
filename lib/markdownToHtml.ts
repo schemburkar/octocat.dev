@@ -10,7 +10,9 @@ sanitizeAttributeOptions['*'].push('className');
 const markdownToHtml = async (markdown: string, options: MarkDownOptions) => {
   const result = await remark()
     .use(remarkGfm)
-    .use(remarkHtml, { sanitize: { clobberPrefix: options.clobberPrefix, attributes: sanitizeAttributeOptions } })
+    .use(remarkHtml,
+      //@ts-ignore
+      { sanitize: { clobberPrefix: options.clobberPrefix, attributes: sanitizeAttributeOptions } })
     .use(remarkHeaderAnchorLinks, { className: options.anchorLinkClassName })
     .process(markdown)
   return result.toString()
