@@ -3,12 +3,30 @@
  */
 const nextConfig = {
   images: {
-    domains: ['assets.vercel.com', 'worldwidecode.files.wordpress.com', 'octocat.dev'],
+    unoptimized:true,
+    remotePatterns:[
+      {
+        protocol: 'https',
+        hostname: 'assets.vercel.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'worldwidecode.files.wordpress.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'octocat.dev',
+        port: '',
+        pathname: '/**',
+      },
+    ]
   },
+  output:'export',
   reactStrictMode: true,
-  experimental: {
-    legacyBrowsers: false,
-  },
 }
 
 module.exports = nextConfig

@@ -1,5 +1,5 @@
 import Container from './container'
-import { EXAMPLE_PATH } from '../lib/constants'
+import { GitHubRepo } from '../lib/constants'
 
 export default function Alert() {
   return (
@@ -11,7 +11,7 @@ export default function Alert() {
           <>
             The source code for this blog is{' '}
             <a
-              href={`${EXAMPLE_PATH}`}
+              href={`${GitHubRepo}`}
               className="underline hover:text-success duration-200 transition-colors"
             >
               available on GitHub

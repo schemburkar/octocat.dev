@@ -1,6 +1,4 @@
-/* Start purging... */
-@tailwind components;
-/* Stop purging. */
+@reference "tailwindcss";
 
 .markdown {
   @apply text-lg leading-relaxed;
@@ -43,7 +41,7 @@
 }
 
 .markdown blockquote {
-  @apply border-l-4 border-gray-200 p-4 bg-gray-200 bg-opacity-25;
+  @apply border-l-4 border-gray-200 p-4 bg-gray-200 bg-black/25;
 }
 
 .markdown ul li p {

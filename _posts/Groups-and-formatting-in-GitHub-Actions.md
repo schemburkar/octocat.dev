@@ -5,10 +5,9 @@ coverImage: "https://worldwidecode.files.wordpress.com/2021/05/security-wallpape
 date: "2022-09-09T12:30:00Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2021/05/security-wallpaper.jpg?w=1080"
-isHeroPost: false
 ---
 
 GitHub Actions can have multiple steps, some more than others. If we group the output, it makes it cleaner to view and check. This post explains how to do just that very easily.

@@ -5,10 +5,9 @@ coverImage: "https://worldwidecode.files.wordpress.com/2023/05/ilja-tulit-coreqi
 date: "2023-05-17T12:52:30.000Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/05/ilja-tulit-coreqiuk1qm-unsplash-dark-light.jpg"
-isHeroPost: false
 coverImageAspectRatio: 1.5
 ---
 

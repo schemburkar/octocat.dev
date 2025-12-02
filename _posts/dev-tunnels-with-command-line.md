@@ -1,14 +1,13 @@
 ---
 title: "Using Microsoft dev tunnels with command line"
 excerpt: "In this post we take a look at the command line experience for creating Microsoft dev tunnels without requiring Visual Studio."
-coverImage: "https://worldwidecode.files.wordpress.com/2023/06/ian-battaglia-9drs5e_rguc-unsplash.jpg"
+coverImage: "https://worldwidecode.files.wordpress.com/2023/06/ian-battaglia-9drs5e_rguc-unsplash.jpg?w=1024"
 date: "2023-06-22T05:01:00.000Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/06/ian-battaglia-9drs5e_rguc-unsplash.jpg"
-isHeroPost: true
 coverImageAspectRatio: 1.6
 ---
 

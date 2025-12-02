@@ -7,10 +7,9 @@ coverImage: "https://worldwidecode.files.wordpress.com/2021/05/security-wallpape
 date: "2021-05-29T19:50:24+05:30"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2021/05/security-wallpaper.jpg?w=1080"
-isHeroPost: false
 isArchive: true
 ---
 

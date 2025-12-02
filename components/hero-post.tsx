@@ -1,8 +1,7 @@
 import Avatar from './avatar'
 import DateFormatter from './date-formatter'
-import CoverImage from './cover-image'
+import CoverImage from './CoverImage'
 import PostLink from './PostLink'
-import { useScreenHeight } from './useScreenHeight'
 import { IItemData } from '../lib/FileFormat'
 
 export default function HeroPost({
@@ -15,16 +14,14 @@ export default function HeroPost({
   type,
   aspectRatio = 2 / 1
 }: HeroPostProps) {
-  const size = useScreenHeight(aspectRatio);
   return (
     <article className='shadow-md shadow-gray-200 dark:shadow-gray-800 md:shadow-none  mb-10 md:mb-0 rounded-md'>
       <header className="mb-8 md:mb-14">
-        {coverImage && <CoverImage
+        {coverImage && <CoverImage prefetch
           title={title || ''}
           src={coverImage}
           slug={slug || ''}
-          height={size.height}
-          width={size.width}
+          aspectRatio={aspectRatio}
           type={type}
           responsive={false} className={'text-center'}
         />}

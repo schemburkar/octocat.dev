@@ -2,12 +2,8 @@ import { readFile, readdir } from 'fs/promises'
 import { join, sep } from 'path'
 import matter from 'gray-matter'
 import { Fileformats, ItemTypes, Fields, IItemData, ItemType } from './FileFormat'
+import heroposts from '../metadata/heroposts';
 
-
-type filepath = {
-  name: string
-  dir?: string
-}
 
 async function* readDirectory(path: string, parentPath?: string): AsyncGenerator<string[]> {
   const dirents = await readdir(path, { withFileTypes: true });
@@ -60,6 +56,9 @@ export class DataAPI {
         items[field] = data[field]
       }
     })
+
+    if (heroposts.find(h => h.slug == realSlug))
+      items['isHeroPost'] = true;
 
     return items
   }

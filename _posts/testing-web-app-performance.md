@@ -5,10 +5,9 @@ coverImage: "https://worldwidecode.files.wordpress.com/2023/01/mike-van-den-bos-
 date: "2023-01-03T16:00:00.000Z"
 author:
   name: Shubhan Chemburkar
-  picture: "/assets/blog/authors/default.png"
+  picture: "https://worldwidecode.files.wordpress.com/2023/07/sc.png"
 ogImage:
   url: "https://worldwidecode.files.wordpress.com/2023/01/mike-van-den-bos-jf1eomjlqi0-unsplash.jpg"
-isHeroPost: false
 coverImageAspectRatio: 1.5
 ---
 
