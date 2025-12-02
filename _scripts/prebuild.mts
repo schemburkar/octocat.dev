@@ -69,6 +69,6 @@ const savePostPage = async () => {
     }
 }
 
-await saveStyles('highlight.js/scss/github.scss');
-await saveStyles('highlight.js/scss/github-dark.scss', 'dark');
+await saveStyles('highlight.js/styles/github.css');
+await saveStyles('highlight.js/styles/github-dark.css', 'dark');
 await savePostPage();

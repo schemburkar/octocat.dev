@@ -1,6 +1,6 @@
 
 
-import '../styles/index.scss'
+import '../styles/index.css'
 import fs from 'fs'
 import { join } from 'path'
 import { Description, HOME_OG_IMAGE_URL, Title } from '../lib/constants';

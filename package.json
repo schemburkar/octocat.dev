@@ -3,36 +3,38 @@
   "scripts": {
     "dev": "next",
     "build": "yarn pre-build && next build",
-    "start": "next start",
-    "pre-build":"node --no-warnings=ExperimentalWarning --loader ts-node/esm ./_scripts/prebuild.mts"
+    "start": "npx serve@latest out",
+    "pre-build": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./_scripts/prebuild.mts"
   },
   "dependencies": {
     "classnames": "2.5.1",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "gray-matter": "4.0.3",
-    "hast-util-sanitize": "^5.0.1",
-    "mdast-util-to-hast": "^13.1.0",
-    "next": "^14.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.1.0",
-    "rehype": "13.0.1",
-    "rehype-highlight": "7.0.0",
+    "hast-util-sanitize": "^5.0.2",
+    "mdast-util-to-hast": "^13.2.1",
+    "next": "^16.0.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "rehype": "13.0.2",
+    "rehype-highlight": "7.0.2",
     "remark": "15.0.1",
-    "remark-gfm": "4.0.0",
+    "remark-gfm": "4.0.1",
     "remark-html": "16.0.1",
-    "sass": "^1.75.0",
-    "sharp": "^0.33.3",
+    "sass": "^1.94.2",
+    "sharp": "^0.34.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.78",
-    "autoprefixer": "^10.4.19",
-    "cssnano": "^6.1.2",
-    "eslint": "^9.0.0",
-    "eslint-config-next": "^14.2.1",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
-  }
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "autoprefixer": "^10.4.22",
+    "cssnano": "^7.1.2",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^16.0.6",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
+    "@tailwindcss/postcss":"4.1.17"
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }

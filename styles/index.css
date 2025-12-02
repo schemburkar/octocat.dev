@@ -1,0 +1,57 @@
+
+@config "../tailwind.config.js";
+@import "tailwindcss";
+
+@theme {
+    /* Colors */
+    --color-accent-1: #FAFAFA;
+    --color-accent-2: #EAEAEA;
+    --color-accent-7: #333;
+    --color-success: #0070f3;
+    --color-cyan: #79FFE1;
+    --color-twitter: #1d9bf0;
+    --color-trueDark: #121212;
+  
+    /* Spacing */
+    --spacing-28: 7rem;
+  
+    /* Letter spacing */
+    --letter-spacing-tighter: -0.04em;
+  
+    /* Line height */
+    --line-height-tight: 1.2;
+  
+    /* Font sizes */
+    --text-5xl: 2.5rem;
+    --text-6xl: 2.75rem;
+    --text-7xl: 4.5rem;
+    --text-8xl: 6.25rem;
+  
+    /* Shadows */
+    --shadow-sm: 0 5px 10px rgba(0, 0, 0, 0.12);
+    --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.12);
+  
+    /* Keyframes */
+    @keyframes fade-in-up {
+      0% { opacity: 0; transform: translate3d(0,100%,0); }
+      100% { opacity: 1; transform: none; }
+    }
+  
+    @keyframes fade-out-down {
+      0% { opacity: 1; }
+      100% { opacity: 0; transform: translate3d(0,100%,0); }
+    }
+  
+    @keyframes fade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  
+    /* Animations */
+    --animate-fade-out-down: fade-out-down 0.5s ease-out;
+    --animate-fade-in-up: fade-in-up 0.5s ease-out;
+  }
+
+@import './markdown-styles.css';
+@import './highlight.js/styles/github.css';
+@import './highlight.js/styles/github-dark.css';
