@@ -28,8 +28,8 @@ export const SearchInput = ({ query, setQuery }: { query: string, setQuery: (q: 
 
 
 export const useBufferedAPI = (timeout: number = 250) => {
-    const handle = useRef<NodeJS.Timeout>();
-    const controller = useRef<AbortController>();
+    const handle = useRef<NodeJS.Timeout>(null);
+    const controller = useRef<AbortController>(null);
 
     const invoke = useCallback((dataSource: (signal?: AbortSignal) => void) => {
         if (handle.current)

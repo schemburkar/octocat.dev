@@ -13,9 +13,9 @@ ogImage:
 ## **About the Author**
 
 
-![profile picture of Shubhan Chemburkar](https://octocat.dev/assets/blog/authors/default.png)
+![profile picture of Shubhan Chemburkar](https://worldwidecode.files.wordpress.com/2023/07/sc.png)
  
-**Shubhan Chemburkar** is a experienced software engineer having 14 years of experience in developing products in Microsoft stack.
+**Shubhan Chemburkar** is a experienced software engineer having 16 years of experience in developing products in Microsoft stack.
 
 This website [octocat.dev](octocat.dev) is his personal blog on all developer related stuff. Expect posts on Azure, .NET, React and more!
 
@@ -33,25 +33,6 @@ You can always reach out to him on [Twitter](https://twitter.com/intent/tweet?sc
 pipelines.
 - Constantly Learning by developing and maintaining own websites and initiatives.
 
-## **Personal Projects**
-
-### &lt;Create Your Bot /&gt;
-
-[createyourbot.dev](https://createyourbot.dev/) is a new platform for developers to build bots powered by the Microsoft Bot Framework 
-and Azure.
-
-- Focus on providing platform to create new experiences rather than involving technology and deployment.
-- Specialized bots can be created within minutes and published on web chat and Microsoft teams channels.
-- Rich UX using React and Fluent UI with easy to integrate SDK for client websites.
-
-### What-If Money
-
-A prototype website [whatifmoney.com](whatifmoney.com) to provide tracking of mutual funds in India and its returns in a user portfolio.
-
-
-- Developed in NextJs for rapid client-side development and .NET 6 for stateless Web APIs.
-- **Data Security**: All user data is encrypted using user known secret key. Application and its maintainers do not have 
-direct access to data without user keys.
 
 ## **Professional Experience**
 
